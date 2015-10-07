@@ -23,6 +23,7 @@ public class Quest {
         
         String playerInfo = totalTime.toString();
         System.out.println(playerInfo);
+        
     }
     
 }

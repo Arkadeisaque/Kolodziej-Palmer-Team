@@ -109,7 +109,7 @@ public class Quest {
         System.out.println(toolInfo);
         
         Food newFood = new Food();
-        newFood.setType("zombie meat-turn you into a zombie");
+        newFood.setType("meat-restore energy");
         newFood.setValue(25);
         newFood.setQuantity(3);
         

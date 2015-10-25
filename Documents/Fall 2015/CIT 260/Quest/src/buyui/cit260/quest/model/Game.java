@@ -6,6 +6,7 @@
 package buyui.cit260.quest.model;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  *
@@ -15,9 +16,28 @@ public class Game implements Serializable{
     
     // class instance variables
     private int totalTime; 
+    private Player newPlayer;
+    private Map matrix;
+    
 
     public Game(int totalTime) {
         this.totalTime = totalTime;
+    }
+
+    public Player getNewPlayer() {
+        return newPlayer;
+    }
+
+    public void setNewPlayer(Player newPlayer) {
+        this.newPlayer = newPlayer;
+    }
+
+    public Map getMatrix() {
+        return matrix;
+    }
+
+    public void setMatrix(Map matrix) {
+        this.matrix = matrix;
     }
 
     public Game() {
@@ -34,14 +54,11 @@ public class Game implements Serializable{
     }
 
     @Override
-    public String toString() {
-        return "Game{" + "totalTime=" + totalTime + '}';
-    }
-
-    @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 97 * hash + this.totalTime;
+        int hash = 7;
+        hash = 37 * hash + this.totalTime;
+        hash = 37 * hash + Objects.hashCode(this.newPlayer);
+        hash = 37 * hash + Objects.hashCode(this.matrix);
         return hash;
     }
 
@@ -57,8 +74,18 @@ public class Game implements Serializable{
         if (this.totalTime != other.totalTime) {
             return false;
         }
+        if (!Objects.equals(this.newPlayer, other.newPlayer)) {
+            return false;
+        }
+        if (!Objects.equals(this.matrix, other.matrix)) {
+            return false;
+        }
         return true;
     }
-    
+
+    @Override
+    public String toString() {
+        return "Game{" + "totalTime=" + totalTime + ", newPlayer=" + newPlayer + ", matrix=" + matrix + '}';
+    }
     
 }

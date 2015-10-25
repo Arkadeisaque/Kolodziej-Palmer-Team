@@ -5,17 +5,13 @@
  */
 package quest;
 
-import buyui.cit260.quest.model.ActionScene;
-import buyui.cit260.quest.model.Artifacts;
-import buyui.cit260.quest.model.Food;
+
+import buyui.cit260.quest.model.Actor;
 import buyui.cit260.quest.model.Game;
 import buyui.cit260.quest.model.InventoryItem;
 import buyui.cit260.quest.model.Location;
 import buyui.cit260.quest.model.Map;
 import buyui.cit260.quest.model.Player;
-import buyui.cit260.quest.model.RegularScene;
-import buyui.cit260.quest.model.ResourceActionScene;
-import buyui.cit260.quest.model.Tools;
 
 /**
  *
@@ -61,29 +57,6 @@ public class Quest {
         String locationInfo = mapOne.toString();
         System.out.println(locationInfo);
         
-        ResourceActionScene resourceSceneOne = new ResourceActionScene();
-        resourceSceneOne.setDescription(" The Ord is inside of a locked box.");
-        resourceSceneOne.setQuantity(1);
-        resourceSceneOne.setValue(100000);
-        resourceSceneOne.setTravelTime((int) 1.30);
-        
-        String resourceSceneInfo = resourceSceneOne.toString();
-        System.out.println(resourceSceneInfo);
-        
-        RegularScene regularSceneOne = new RegularScene();
-        regularSceneOne.setDescription("There are no items here.");
-        regularSceneOne.setTravelTime(0.15);
-        
-        String regularSceneInfo = regularSceneOne.toString();
-        System.out.println(regularSceneInfo);
-        
-        ActionScene actionSceneOne = new ActionScene();
-        actionSceneOne.setDescription(" The player can take a stroll and build a sand castle.");
-        actionSceneOne.setTravelTime(0.45);
-        
-        String actionSceneInfo = actionSceneOne.toString();
-        System.out.println(actionSceneInfo);
-        
         InventoryItem newInventory = new InventoryItem();
         newInventory.setInventoryType("knife");
         newInventory.setQuantityInStock(3);
@@ -92,29 +65,13 @@ public class Quest {
         String inventoryInfo = newInventory.toString();
         System.out.println(inventoryInfo);
         
-        Artifacts newArtifact = new Artifacts();
-        newArtifact.setType("ord-critical to win the game");
-        newArtifact.setQuantity(1);
-        newArtifact.setValue(10000);
+        Actor actorOne = new Actor();
         
-        String artifactInfo = newArtifact.toString();
-        System.out.println(artifactInfo);
+        actorOne.setActorName("King");
+        Location[][] location = null;
+        actorOne.setLocation(location[2][8]);
         
-        Tools newTool = new Tools();
-        newTool.setType("knife-cutting tool and weapon");
-        newTool.setQuantity(10);
-        newTool.setValue(250);
-        
-        String toolInfo = newTool.toString();
-        System.out.println(toolInfo);
-        
-        Food newFood = new Food();
-        newFood.setType("meat-restore energy");
-        newFood.setValue(25);
-        newFood.setQuantity(3);
-        
-        String foodInfo = newFood.toString();
-        System.out.println(foodInfo);
-        
+        String actorInfo = actorOne.toString();
+        System.out.println(actorOne);
     }    
 }

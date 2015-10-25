@@ -6,6 +6,7 @@
 package buyui.cit260.quest.model;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -19,11 +20,27 @@ public class Player implements Serializable {
     private int strenght;
     private int health;
     private String type;
+    private Location location;
+    private List<InventoryItem> items;
 
     public Player() {
     }
-    
-    
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public List<InventoryItem> getItems() {
+        return items;
+    }
+
+    public void setItems(List<InventoryItem> items) {
+        this.items = items;
+    }
 
     public String getName() {
         return name;
@@ -59,20 +76,15 @@ public class Player implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 23 * hash + Objects.hashCode(this.name);
-        hash = 23 * hash + this.strenght;
-        hash = 23 * hash + this.health;
-        hash = 23 * hash + Objects.hashCode(this.type);
+        int hash = 5;
+        hash = 79 * hash + Objects.hashCode(this.name);
+        hash = 79 * hash + this.strenght;
+        hash = 79 * hash + this.health;
+        hash = 79 * hash + Objects.hashCode(this.type);
+        hash = 79 * hash + Objects.hashCode(this.location);
+        hash = 79 * hash + Objects.hashCode(this.items);
         return hash;
     }
-
-    @Override
-    public String toString() {
-        return "Player{" + "name=" + name + ", strenght=" + strenght + ", health=" + health + ", type=" + type + '}';
-    }
-    
-    
 
     @Override
     public boolean equals(Object obj) {
@@ -95,8 +107,18 @@ public class Player implements Serializable {
         if (!Objects.equals(this.type, other.type)) {
             return false;
         }
+        if (!Objects.equals(this.location, other.location)) {
+            return false;
+        }
+        if (!Objects.equals(this.items, other.items)) {
+            return false;
+        }
         return true;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return "Player{" + "name=" + name + ", strenght=" + strenght + ", health=" + health + ", type=" + type + ", location=" + location + ", items=" + items + '}';
+    }
+ 
 }

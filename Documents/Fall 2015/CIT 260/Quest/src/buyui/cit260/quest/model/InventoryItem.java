@@ -14,6 +14,7 @@ import java.util.Objects;
  */
 public class InventoryItem implements Serializable{
     //class instance variables
+    private String name;
     private String inventoryType;
     private int quantityInStock;
     private int requiredAmount;
@@ -46,21 +47,24 @@ public class InventoryItem implements Serializable{
         this.requiredAmount = requiredAmount;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 23 * hash + Objects.hashCode(this.inventoryType);
-        hash = 23 * hash + this.quantityInStock;
-        hash = 23 * hash + this.requiredAmount;
+        int hash = 3;
+        hash = 73 * hash + Objects.hashCode(this.name);
+        hash = 73 * hash + Objects.hashCode(this.inventoryType);
+        hash = 73 * hash + this.quantityInStock;
+        hash = 73 * hash + this.requiredAmount;
         return hash;
     }
 
-    @Override
-    public String toString() {
-        return "InventoryItem{" + "inventoryType=" + inventoryType + ", quantityInStock=" + quantityInStock + ", requiredAmount=" + requiredAmount + '}';
-    }
-
-    
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {
@@ -70,6 +74,9 @@ public class InventoryItem implements Serializable{
             return false;
         }
         final InventoryItem other = (InventoryItem) obj;
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
         if (!Objects.equals(this.inventoryType, other.inventoryType)) {
             return false;
         }
@@ -81,7 +88,10 @@ public class InventoryItem implements Serializable{
         }
         return true;
     }
-    
-    
-    
+
+    @Override
+    public String toString() {
+        return "InventoryItem{" + "name=" + name + ", inventoryType=" + inventoryType + ", quantityInStock=" + quantityInStock + ", requiredAmount=" + requiredAmount + '}';
+    }
+  
 }

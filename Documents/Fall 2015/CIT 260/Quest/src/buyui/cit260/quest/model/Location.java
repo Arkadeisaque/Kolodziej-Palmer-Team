@@ -13,11 +13,12 @@ import java.util.Objects;
  * @author Arkadiusz
  */
 public class Location implements Serializable {
-    //class instance varables
+    //class instance variables
     private int row;
     private int column;
     private String visited;
     private int amountRemaining;
+    private Player newPlayer;
 
     public Location() {
     }
@@ -55,19 +56,23 @@ public class Location implements Serializable {
         this.amountRemaining = amountRemaining;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 37 * hash + this.row;
-        hash = 37 * hash + this.column;
-        hash = 37 * hash + Objects.hashCode(this.visited);
-        hash = 37 * hash + this.amountRemaining;
-        return hash;
+    public Player getNewPlayer() {
+        return newPlayer;
+    }
+
+    public void setNewPlayer(Player newPlayer) {
+        this.newPlayer = newPlayer;
     }
 
     @Override
-    public String toString() {
-        return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", amountRemaining=" + amountRemaining + '}';
+    public int hashCode() {
+        int hash = 7;
+        hash = 67 * hash + this.row;
+        hash = 67 * hash + this.column;
+        hash = 67 * hash + Objects.hashCode(this.visited);
+        hash = 67 * hash + this.amountRemaining;
+        hash = 67 * hash + Objects.hashCode(this.newPlayer);
+        return hash;
     }
 
     @Override
@@ -91,8 +96,15 @@ public class Location implements Serializable {
         if (this.amountRemaining != other.amountRemaining) {
             return false;
         }
+        if (!Objects.equals(this.newPlayer, other.newPlayer)) {
+            return false;
+        }
         return true;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", amountRemaining=" + amountRemaining + ", newPlayer=" + newPlayer + '}';
+    }
+  
 }

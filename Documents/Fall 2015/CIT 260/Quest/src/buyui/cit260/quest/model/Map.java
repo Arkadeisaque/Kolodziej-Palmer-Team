@@ -6,6 +6,7 @@
 package buyui.cit260.quest.model;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  *
@@ -15,6 +16,7 @@ public class Map implements Serializable {
     //class instnce variables
     private int rowCount;
     private int columnCount;
+    private Location[][] location;
 
     public Map() {
     }
@@ -36,19 +38,22 @@ public class Map implements Serializable {
         this.columnCount = columnCount;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 89 * hash + this.rowCount;
-        hash = 89 * hash + this.columnCount;
-        return hash;
+    public Location[][] getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
     }
 
     @Override
-    public String toString() {
-        return "Map{" + "rowCount=" + rowCount + ", columnCount=" + columnCount + '}';
+    public int hashCode() {
+        int hash = 3;
+        hash = 79 * hash + this.rowCount;
+        hash = 79 * hash + this.columnCount;
+        hash = 79 * hash + Objects.hashCode(this.location);
+        return hash;
     }
-    
 
     @Override
     public boolean equals(Object obj) {
@@ -65,8 +70,21 @@ public class Map implements Serializable {
         if (this.columnCount != other.columnCount) {
             return false;
         }
+        if (!Objects.equals(this.location, other.location)) {
+            return false;
+        }
         return true;
     }
-    
+
+    @Override
+    public String toString() {
+        return "Map{" + "rowCount=" + rowCount + ", columnCount=" + columnCount + ", location=" + location + '}';
+    }
+    /////////////////////////////////////
+    //Methods
+    /////////////////////////////////////
+    Location castle = new Location();
+    //setup castle
+    location[2][8] = castle;
     
 }

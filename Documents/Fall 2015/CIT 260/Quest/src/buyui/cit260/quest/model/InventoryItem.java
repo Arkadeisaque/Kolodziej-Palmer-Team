@@ -18,6 +18,7 @@ public class InventoryItem implements Serializable{
     private String inventoryType;
     private int quantityInStock;
     private int requiredAmount;
+    private Player name;
 
     public InventoryItem() {
     }

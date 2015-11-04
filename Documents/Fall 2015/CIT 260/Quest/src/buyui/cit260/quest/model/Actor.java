@@ -14,7 +14,7 @@ import java.util.Objects;
  */
 public class Actor implements Serializable{
     // class instance variables
-    private String actorName;
+    private String actor;
     private Location location;
     
     public Actor() {
@@ -22,11 +22,11 @@ public class Actor implements Serializable{
     }
 
     public String getName() {
-        return actorName;
+        return actor;
     }
 
     public void setName(String name) {
-        this.actorName = name;
+        this.actor = name;
     }
 
     public Location getLocation() {
@@ -40,7 +40,7 @@ public class Actor implements Serializable{
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 53 * hash + Objects.hashCode(this.actorName);
+        hash = 53 * hash + Objects.hashCode(this.actor);
         hash = 53 * hash + Objects.hashCode(this.location);
         return hash;
     }
@@ -54,7 +54,7 @@ public class Actor implements Serializable{
             return false;
         }
         final Actor other = (Actor) obj;
-        if (!Objects.equals(this.actorName, other.actorName)) {
+        if (!Objects.equals(this.actor, other.actor)) {
             return false;
         }
         if (!Objects.equals(this.location, other.location)) {
@@ -65,10 +65,10 @@ public class Actor implements Serializable{
 
     @Override
     public String toString() {
-        return "Actor{" + "name=" + actorName + ", location=" + location + '}';
+        return "Actor{" + "name=" + actor + ", location=" + location + '}';
     }
 
-    public void setActorName(String king) {
+    public void setActor(String King) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

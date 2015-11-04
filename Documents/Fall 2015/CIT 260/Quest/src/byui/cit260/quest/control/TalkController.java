@@ -5,13 +5,15 @@
  */
 package byui.cit260.quest.control;
 
+import buyui.cit260.quest.model.Location;
+
 /**
  *
  * @author Arkadiusz
  */
 public class TalkController {
-    public boolean talkToActor(location[2][8], String name){
-        if (location[2][8] = actorName) //if location has a actor, playe talks with him
+    public boolean talkToActor(Location location, String name){
+        if (location.getActor() != null) //if location has a actor, playe talks with him
             return true;
         else {
             return false;

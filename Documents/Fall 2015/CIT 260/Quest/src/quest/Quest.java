@@ -12,18 +12,43 @@ import buyui.cit260.quest.model.InventoryItem;
 import buyui.cit260.quest.model.Location;
 import buyui.cit260.quest.model.Map;
 import buyui.cit260.quest.model.Player;
+import byui.cit260.quest.view.StartProgramView;
 
 /**
  *
  * @author Arkadiusz
  */
 public class Quest {
+    
+    private static Game currentGame = null;
+    private static Player player = null;
+
+    public static Game getCurrentGame() {
+        return currentGame;
+    }
+
+    public static void setCurrentGame(Game currentGame) {
+        Quest.currentGame = currentGame;
+    }
+
+    public static Player getPlayer() {
+        return player;
+    }
+
+    public static void setPlayer(Player player) {
+        Quest.player = player;
+    }
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Game totalTime = new Game();
+        //create the start program view and start the program
+        StartProgramView startProgramView = new StartProgramView();
+        startProgramView.startProgram();
+        
+        
+        /*Game totalTime = new Game();
         
         totalTime.setTotalTime(12);
         
@@ -72,6 +97,10 @@ public class Quest {
         actorOne.setLocation(location[2][8]);
         
         String actorInfo = actorOne.toString();
-        System.out.println(actorOne);
+        System.out.println(actorOne);*/
     }    
+
+    /*public static void setPlayer(Player player) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }*/ //probably created by accident???
 }

@@ -6,6 +6,7 @@
 package buyui.cit260.quest.model;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -19,6 +20,16 @@ public class Location implements Serializable {
     private String visited;
     private int amountRemaining;
     private Player newPlayer;
+    private Actor actor;
+    private List<InventoryItem> items;
+
+    public Actor getActor() {
+        return actor;
+    }
+
+    public void setActor(Actor actor) {
+        this.actor = actor;
+    }
 
     public Location() {
     }

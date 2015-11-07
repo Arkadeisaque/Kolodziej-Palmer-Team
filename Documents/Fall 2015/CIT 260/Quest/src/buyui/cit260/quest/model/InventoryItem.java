@@ -18,7 +18,7 @@ public class InventoryItem implements Serializable{
     private String inventoryType;
     private int quantityInStock;
     private int requiredAmount;
-    private Player name;
+    
 
     public InventoryItem() {
     }
@@ -94,5 +94,32 @@ public class InventoryItem implements Serializable{
     public String toString() {
         return "InventoryItem{" + "name=" + name + ", inventoryType=" + inventoryType + ", quantityInStock=" + quantityInStock + ", requiredAmount=" + requiredAmount + '}';
     }
-  
+    
+    //////////////////////////////////
+    // MY METHODS
+    //////////////////////////////////
+    
+    public void init() {
+        
+        InventoryItem name = new InventoryItem(); //setup orb
+        name.setName(String orb);
+        
+        InventoryItem enchantedApple = new InventoryItem(); //setup enchanted apple
+        
+        InventoryItem bucket = new InventoryItem(); //setup bucket
+        
+        InventoryItem bucketWithWater = new InventoryItem(); //setup bucket with water
+        
+        InventoryItem gauntlets = new InventoryItem(); //setup gauntlets
+        
+        InventoryItem torch = new InventoryItem(); //setup torch
+        
+        InventoryItem meat = new InventoryItem(); //setup meat
+        
+        InventoryItem knife = new InventoryItem(); //setup knife
+        
+        InventoryItem map = new InventoryItem(); //setup map
+        
+        InventoryItem corn = new InventoryItem(); //setup corn
+    }
 }

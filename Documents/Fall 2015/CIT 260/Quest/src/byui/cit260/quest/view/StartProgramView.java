@@ -18,20 +18,22 @@ public class StartProgramView {
         
     }
     
+    //subtasks for which separate functions were created:
     public void startProgram() {
         //Display the banner screen
         this.displayBanner();
         //prompt the player to enter their name Retrieve the name of the player
-        String playersName = this.getPlayersName();
+        String name = this.getName();
         //Create and save the player object
-        Player player = ProgramControl.createPlayer(playersName);
+        Player player = ProgramControl.createPlayer(name);
         //Display a personalized welcome message
         this.displayWelcomeMessage(player);
         //Display the Main menu.
         MainMenuView mainMenu = new MainMenuView();
         mainMenu.displayMenu();
     }
-
+    
+    //implemented displayBanner() function:
     private void displayBanner() {
         System.out.println("\n\n*********************************************");
         
@@ -54,9 +56,9 @@ public class StartProgramView {
         System.out.println("************************************************");
     }
 
-    private String getPlayersName() {
+    private String getName() {
         boolean valid = false; //indicates if the name has been retrieved
-        String playersName = null;
+        String name = null;
         Scanner keyboard = new Scanner(System.in); //keyboard input stream
         
         while(!valid) { //while a valid name has not been retrieved
@@ -65,18 +67,18 @@ public class StartProgramView {
             System.out.println("Enter the player's name below:");
             
             //get the name from the keyboard and trim the blanks
-            playersName = keyboard.nextLine();
-            playersName = playersName.trim();
+            name = keyboard.nextLine();
+            name = name.trim();
             
             //if the name is invalid (less than two character in length)
-            if (playersName.length() < 2) {
+            if (name.length() < 3) {
                 System.out.println("Invalid name - the name must not be blank");
                 continue; //and repeat again
             }
             break; //out of the (exit) the repetition
         }
         
-        return playersName; //return the name
+        return name; //return the name
     }
 
     private void displayWelcomeMessage(Player player) {

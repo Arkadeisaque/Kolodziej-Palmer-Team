@@ -5,6 +5,10 @@
  */
 package byui.cit260.quest.view;
 
+import byui.cit260.quest.control.GameController;
+import java.util.Scanner;
+import quest.Quest;
+
 /**
  *
  * @author Arkadiusz
@@ -18,6 +22,7 @@ public class MainMenuView {
                 + "\nG - Start the Game"
                 + "\nH - Get Help on How to Play the Game"
                 + "\nS - Save the Game"
+                + "\nO - Open the Game"
                 + "\nE - Exit"
                 + "\n------------------------------------------";
                 
@@ -35,12 +40,87 @@ public class MainMenuView {
         }
 
     private String getInput() {
-        System.out.println("*** displayMenu.getInput() function called ***");
-            return null;
+
+        boolean valid = false; //indicates if the letter has been retrieved
+        String selection = null;
+        Scanner keyboard = new Scanner(System.in); //keyboard input stream
+        
+        while(!valid) { //while a valid letter has not been retrieved
+            
+            //prompt for the correct value
+            System.out.println("Enter one of the menu's letter below:");
+            
+            //get the letter from the keyboard and trim the blanks
+            selection = keyboard.nextLine();
+            selection = selection.trim();
+            
+            //if the letter is invalid (out of the menu scope)
+            if (selection != 'g' && selection != 'G' && selection != 'h' && selection != 'H' && selection != 's' 
+                    && selection != 'S' && selection != 'e' && selection != 'E' && selection != 'o' && selection != 'O') {
+                System.out.println("Invalid letter - the letter must be from the menu");
+                continue; //and repeat again
+            }
+            break; //out of the (exit) the repetition
+        }
+        
+        return selection; //return the name
     }
+    
 
     private void doAction(char selection) {
-        System.out.println("*** displayMenu.doAction() function called ***");
+         switch (selection) {
+
+            case 'G':
+                startNewGame();
+                break;
+            case 'S':
+                saveGame();
+                break;
+            case 'O':
+                openGame();
+                break;
+            case 'H':
+                showHelpMenu();
+                break;
+            case 'E':
+                exitGame();
+                break;
+
+            default:
+                System.out.println("Invalid selection - Try again");
+        }
+         
+    }
+
+    private void startNewGame() {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //create a new game
+        GameController.createNewGaame(Quest.getPlayer());
+        
+        //display the game menu
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.displayMenu();
+    }
+
+    private void saveGame() {
+       //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("saveGame function called");
+    }
+
+    private void openGame() {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("openGame function called");
+    }
+
+    private void showHelpMenu() {
+        HelpMenuView helpMenu = new HelpMenuView();
+        helpMenu.displayHelp();
+        displayMenu();
+    }
+
+    private void exitGame() {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("Thanks for playing!");
     }
     
 }

@@ -44,8 +44,8 @@ public class Quest {
      */
     public static void main(String[] args) {
         //create the start program view and start the program
-        StartProgramView startProgramView = new StartProgramView();
-        startProgramView.startProgram();
+        StartProgramView startProgramView = new StartProgramView(); //this creates a new object instance of the class folloewed by a call to the default constructor function
+        startProgramView.startProgram(); //this statement calls the startProgram() function
         
         
         /*Game totalTime = new Game();

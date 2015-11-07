@@ -3,17 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package byui.cit260.quest.control;
-
-import buyui.cit260.quest.model.Player;
+package byui.cit260.quest.view;
 
 /**
  *
  * @author Arkadiusz
  */
-public class GameController {
+class GameMenuView {
 
-    public static void createNewGaame(Player player) {
+    void displayMenu() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

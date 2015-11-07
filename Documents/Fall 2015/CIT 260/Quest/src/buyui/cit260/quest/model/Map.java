@@ -85,8 +85,8 @@ public class Map implements Serializable {
     /////////////////////////////////////
     public void init() {
     Location castle = new Location();
-    //setup castle
-    location[2][8] = castle;
+        //setup castle
+        location[2][8] = castle;
     
     Location tower = new Location();
         //setup tower

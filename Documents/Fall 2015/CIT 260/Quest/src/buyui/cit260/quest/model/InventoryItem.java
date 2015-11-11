@@ -102,7 +102,7 @@ public class InventoryItem implements Serializable{
     public void init() {
         
         InventoryItem name = new InventoryItem(); //setup orb
-        name.setName(String orb);
+        name.setName("orb");
         
         InventoryItem enchantedApple = new InventoryItem(); //setup enchanted apple
         

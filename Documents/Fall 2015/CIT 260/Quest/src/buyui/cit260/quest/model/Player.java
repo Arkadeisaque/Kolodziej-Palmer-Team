@@ -6,6 +6,7 @@
 package buyui.cit260.quest.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -24,6 +25,7 @@ public class Player implements Serializable {
     private List<InventoryItem> items;
 
     public Player() {
+        items = new ArrayList<>();
     }
 
     public Location getLocation() {

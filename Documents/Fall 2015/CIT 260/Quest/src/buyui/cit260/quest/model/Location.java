@@ -6,6 +6,7 @@
 package buyui.cit260.quest.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -32,6 +33,7 @@ public class Location implements Serializable {
     }
 
     public Location() {
+        items = new ArrayList<>();
     }
     
 
@@ -75,6 +77,14 @@ public class Location implements Serializable {
         this.newPlayer = newPlayer;
     }
 
+    public List<InventoryItem> getItems() {
+        return items;
+    }
+
+    public void setItems(List<InventoryItem> items) {
+        this.items = items;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 7;

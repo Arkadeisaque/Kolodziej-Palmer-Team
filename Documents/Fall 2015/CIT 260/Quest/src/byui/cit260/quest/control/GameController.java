@@ -14,7 +14,7 @@ import buyui.cit260.quest.model.Player;
 public class GameController {
 
     public static void createNewGaame(Player player) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("createGame function called!");
     }
     
 }

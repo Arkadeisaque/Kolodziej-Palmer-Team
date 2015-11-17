@@ -72,7 +72,7 @@ public class StartProgramView {
             
             //if the name is invalid (less than two character in length)
             if (name.length() < 3) {
-                System.out.println("Invalid name - the name must not be blank");
+                System.out.println("Invalid name - the name must be at least 3 characters");
                 continue; //and repeat again
             }
             break; //out of the (exit) the repetition

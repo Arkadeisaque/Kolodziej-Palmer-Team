@@ -12,7 +12,7 @@ package byui.cit260.quest.view;
 class GameMenuView {
 
     void displayMenu() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("display Menu function called");
     }
     
 }

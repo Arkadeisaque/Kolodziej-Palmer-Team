@@ -28,12 +28,12 @@ public class MainMenuView {
                 
         public void displayMenu(){
             
-            char selection = ' ';
+            char selection = ' '; //??????????????why assigned value is never used? Why I need it then? ?????????????????
             do {
                 System.out.println(MENU); //display the main menu
                 
                 String input = this.getInput(); //get the user's selection
-                selection = input.charAt(0); //get first character of string
+                selection = input.toUpperCase().charAt(0); //get first character of string
                 
                 this.doAction(selection); //do action based on selection
             } while (selection != 'E'); //an selection is not "Exit"
@@ -53,10 +53,10 @@ public class MainMenuView {
             //get the letter from the keyboard and trim the blanks
             selection = keyboard.nextLine();
             selection = selection.trim();
-            
+                    
             //if the letter is invalid (out of the menu scope)
-            if (selection != 'g' && selection != 'G' && selection != 'h' && selection != 'H' && selection != 's' 
-                    && selection != 'S' && selection != 'e' && selection != 'E' && selection != 'o' && selection != 'O') {
+            if (selection.equalsIgnoreCase("G") && selection != "M" 
+                    && selection != "L" && selection != "R" && selection != "Q") {
                 System.out.println("Invalid letter - the letter must be from the menu");
                 continue; //and repeat again
             }
@@ -71,7 +71,7 @@ public class MainMenuView {
          switch (selection) {
 
             case 'G':
-                startNewGame();
+                this.startNewGame(); //??????????????????????in an example there was 'this.' in front of each function here; do I need it? ??????????????????????????????
                 break;
             case 'S':
                 saveGame();
@@ -84,7 +84,7 @@ public class MainMenuView {
                 break;
             case 'E':
                 exitGame();
-                break;
+                return;
 
             default:
                 System.out.println("Invalid selection - Try again");
@@ -114,7 +114,7 @@ public class MainMenuView {
 
     private void showHelpMenu() {
         HelpMenuView helpMenu = new HelpMenuView();
-        helpMenu.displayHelp();
+        helpMenu.displayHelpMenu();
         displayMenu();
     }
 

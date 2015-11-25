@@ -23,6 +23,10 @@ public class InventoryItem implements Serializable{
         this.inventoryType = inventoryType;
         location = new Location(1,1);
     }
+
+    private InventoryItem() {
+        
+    }
     
     
     public String getInventoryType() {
@@ -39,7 +43,7 @@ public class InventoryItem implements Serializable{
 
     @Override
     public String toString() {
-        return "InventoryItem{" + "name=" + name + ", inventoryType=" + inventoryType + ", quantityInStock=" + quantityInStock + ", requiredAmount=" + requiredAmount + '}';
+        return "InventoryItem{" + "name=" + name + ", inventoryType=" + inventoryType + ", quantityInStock=" + quantityInStock + '}';
     }
     
     //////////////////////////////////
@@ -49,24 +53,38 @@ public class InventoryItem implements Serializable{
     public void init() {
         
         InventoryItem name = new InventoryItem(); //setup orb
-        name.setName("orb");
+        name.setName("Orb");
         
         InventoryItem enchantedApple = new InventoryItem(); //setup enchanted apple
+        name.setName("Enchanted Apple");
         
         InventoryItem bucket = new InventoryItem(); //setup bucket
+        name.setName("Bucket");
         
         InventoryItem bucketWithWater = new InventoryItem(); //setup bucket with water
+        name.setName("Bucket With Water");
         
         InventoryItem gauntlets = new InventoryItem(); //setup gauntlets
+        name.setName("Gauntlets");
         
         InventoryItem torch = new InventoryItem(); //setup torch
+        name.setName("Torch");
         
         InventoryItem meat = new InventoryItem(); //setup meat
+        name.setName("Meat");
         
         InventoryItem knife = new InventoryItem(); //setup knife
+        name.setName("Knife");
         
         InventoryItem map = new InventoryItem(); //setup map
+        name.setName("Map");
         
         InventoryItem corn = new InventoryItem(); //setup corn
+        name.setName("Corn");
     }
+        //?????????????????????I added this on NetBeans request, but I don't think it's right??????????????????????
+    private void setName(String orb) { 
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

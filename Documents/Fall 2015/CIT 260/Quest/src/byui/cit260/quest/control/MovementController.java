@@ -13,9 +13,10 @@ import buyui.cit260.quest.model.Map;
  */
 public class MovementController {
 
-    public static Map createMap() {
+    public static Map createMap() { //another method createMap() is in LocationController class?????
         //create the map
-        Map map = new Map(4, 9);
+        Map map = new Map();
+        map.init();
 
         //create a list of the different scenes in the game ??????????????????
         //assign the different scenes to locations in the map ????????????????

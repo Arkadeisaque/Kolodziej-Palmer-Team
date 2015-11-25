@@ -9,6 +9,7 @@ import buyui.cit260.quest.model.Game;
 import buyui.cit260.quest.model.InventoryItem;
 import buyui.cit260.quest.model.Map;
 import buyui.cit260.quest.model.Player;
+import byui.cit260.quest.view.Item;
 import quest.Quest;
 
 /**
@@ -36,6 +37,49 @@ public class GameController {
     }
 
     private static InventoryItem[] createInventoryList() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        // created array(list) of inventory items
+        InventoryItem[] inventory = new InventoryItem[Constants.NUMBER_OF_INVENTORY_ITEMS];
+        
+        InventoryItem orb = new InventoryItem();
+        orb.setDescription("Orb");
+        inventory[Item.orb.ordinal()] = orb;
+        
+        InventoryItem enchantedApple = new InventoryItem();
+        orb.setDescription("Enchanted Apple");
+        inventory[Item.enchantedApple.ordinal()] = enchantedApple;
+        
+        InventoryItem bucket = new InventoryItem();
+        orb.setDescription("Bucket");
+        inventory[Item.bucket.ordinal()] = bucket;
+        
+        InventoryItem bucketWithWater = new InventoryItem();
+        orb.setDescription("bucket With Water");
+        inventory[Item.bucketWithWater.ordinal()] = bucketWithWater;
+        
+        InventoryItem gauntlets = new InventoryItem();
+        orb.setDescription("Gauntlets");
+        inventory[Item.gauntlets.ordinal()] = gauntlets;
+        
+        InventoryItem torch = new InventoryItem();
+        orb.setDescription("Torch");
+        inventory[Item.torch.ordinal()] = torch;
+        
+        InventoryItem meat = new InventoryItem();
+        orb.setDescription("Meat");
+        inventory[Item.meat.ordinal()] = meat;
+        
+        InventoryItem knife = new InventoryItem();
+        orb.setDescription("Knife");
+        inventory[Item.knives.ordinal()] = knife;
+          
+        InventoryItem map = new InventoryItem();
+        orb.setDescription("Map");
+        inventory[Item.map.ordinal()] = map;
+        
+        InventoryItem corn = new InventoryItem();
+        orb.setDescription("Corn");
+        inventory[Item.corn.ordinal()] = corn;
+
+        return inventory;
     }
 }

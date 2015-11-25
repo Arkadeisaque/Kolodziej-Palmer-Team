@@ -13,7 +13,7 @@ import java.util.Scanner;
  */
 public class HelpMenuView extends View {
 
-    public displayHelpMenu() {
+    public HelpMenuView () {
         super("\n"
             + "\n------------------------------------------"
             + "\n|Help Menu                               |"
@@ -44,7 +44,7 @@ public class HelpMenuView extends View {
                 System.out.println("List of available resources");
                 break;
             case 'Q':
-                displayHelpMenu();
+
                 return false;
 
             default:

@@ -12,15 +12,28 @@ import java.util.Objects;
  *
  * @author Arkadiusz
  */
-public class InventoryItem implements Serializable{
-    //class instance variables
-    private String name;
-    private String inventoryType;
-    private int quantityInStock;
-    private int requiredAmount;
+public enum InventoryItem implements Serializable{
     
+    Orb("Magic artifact that will save the kingdom"),
+    EnchantedApple("When you eat this apple, you will be granted the access to the Wesland Woods "),
+    Bucket("Regular bucket to take some water ewith you"),
+    BucketWithWater("You will need the bucket of water to turn to life an anchanted apple tree"),
+    Gauntlets("You will use this tool to cut your way through the bushes on the bridge"),
+    Torch("Much needed tool when gets to dark to see and to retrieve other items"),
+    Meat("You can eat it or trade it"),
+    Knife("Good to have a good knife when you need to cut something out"),
+    Map("You must have one if you want to reach your destination"),
+    Corn("Eat it or trade it");
+    
+    //class instance variables
+    private final String inventoryType;
+    private final int quantityInStock;
+    private final int requiredAmount; //?????????????????do I need this???????????????
+    private final Location[][] location; 
 
-    public InventoryItem() {
+    InventoryItem(String inventoryType) {
+        this.inventoryType = inventoryType;
+        location = new Location(1,1);
     }
     
     
@@ -28,66 +41,16 @@ public class InventoryItem implements Serializable{
         return inventoryType;
     }
 
-    public void setInventoryType(String inventoryType) {
-        this.inventoryType = inventoryType;
-    }
-
     public int getQuantityInStock() {
         return quantityInStock;
-    }
-
-    public void setQuantityInStock(int quantityInStock) {
-        this.quantityInStock = quantityInStock;
     }
 
     public int getRequiredAmount() {
         return requiredAmount;
     }
 
-    public void setRequiredAmount(int requiredAmount) {
-        this.requiredAmount = requiredAmount;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 73 * hash + Objects.hashCode(this.name);
-        hash = 73 * hash + Objects.hashCode(this.inventoryType);
-        hash = 73 * hash + this.quantityInStock;
-        hash = 73 * hash + this.requiredAmount;
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final InventoryItem other = (InventoryItem) obj;
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
-        if (!Objects.equals(this.inventoryType, other.inventoryType)) {
-            return false;
-        }
-        if (this.quantityInStock != other.quantityInStock) {
-            return false;
-        }
-        if (this.requiredAmount != other.requiredAmount) {
-            return false;
-        }
-        return true;
+    public Location getLocation() {
+        return location;
     }
 
     @Override

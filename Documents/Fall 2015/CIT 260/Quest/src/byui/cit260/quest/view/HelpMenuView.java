@@ -11,9 +11,10 @@ import java.util.Scanner;
  *
  * @author Arkadiusz
  */
-class HelpMenuView {
+public class HelpMenuView extends View {
 
-    private final String MENU = "\n"
+    public displayHelpMenu() {
+        super("\n"
             + "\n------------------------------------------"
             + "\n|Help Menu                               |"
             + "\n------------------------------------------"
@@ -22,50 +23,13 @@ class HelpMenuView {
             + "\nL - Find locations"
             + "\nR - Available resources"
             + "\nQ - Quit"
-            + "\n------------------------------------------";
-
-    public void displayHelpMenu() {
-
-        char selection = ' ';
-        do {
-            System.out.println(MENU); //display the help menu
-
-            selection = this.getInput(); //get the user's selection
-
-            this.doAction(selection); //do action based on selection
-        } while (selection != 'Q'); //an selection is not "Quit"
+            + "\n------------------------------------------");
     }
-
-    private char getInput() {
-
-        Scanner in = new Scanner(System.in);
-
-        String input = "";
-        char selection = 0;
-
-        while (input.length() < 1) {
-            displayHelpMenu();
-            input = in.nextLine();
-
-            if (input.length() < 1) {
-                System.out.println("Please select the option form the menu.");
-                displayHelpMenu();
-            } else {
-
-                selection = input.toUpperCase().charAt(0);
-
-                if (selection != 'G' && selection != 'M' && selection != 'L' && selection != 'R' && selection != 'Q') {
-                    System.out.println("Please select a valid input");
-                    input = "";
-                }
-            }
-
-        }
-        return selection;
-    }
-
-    private void doAction(char input) {
-        switch (input) {
+    
+    @Override
+    public boolean doAction(String stringSelection) {
+        char selection = stringSelection.charAt(0);
+        switch (selection) {
 
             case 'G':
                 System.out.println("The goal of the game is to find orb");
@@ -81,11 +45,12 @@ class HelpMenuView {
                 break;
             case 'Q':
                 displayHelpMenu();
-                return;
+                return false;
 
             default:
                 System.out.println("Invalid selection - Try again");
         }
+        return true;
     }
 
 }

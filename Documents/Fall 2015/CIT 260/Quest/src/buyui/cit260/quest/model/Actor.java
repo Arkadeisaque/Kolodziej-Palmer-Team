@@ -12,55 +12,29 @@ import java.util.Objects;
  *
  * @author Arkadiusz
  */
-public class Actor implements Serializable{
-    // class instance variables
-    private String actor;
-    private Location location;
+public enum Actor implements Serializable{
     
-    public Actor() {
-        
+    King("King sends you to the quest for the magic orb."),
+    Blacksmith("He is hungry and will trade some tools for food."),
+    Farmer("He will ask you for help to calculate the amount of grain to plant in his field."),
+    Guard("Guard will gives you a riddle so you can go out of the prison."),
+    Mystic("This men will gives you a good advice.");
+    
+    private final String description;
+    private final Location location;
+    
+    Actor(String description) {
+        this.description = description;
+        location = new Location(1,1);
     }
 
-    public String getName() {
-        return actor;
-    }
-
-    public void setName(String name) {
-        this.actor = name;
-    }
 
     public Location getLocation() {
         return location;
     }
-
-    public void setLocation(Location location) {
-        this.location = location;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 53 * hash + Objects.hashCode(this.actor);
-        hash = 53 * hash + Objects.hashCode(this.location);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Actor other = (Actor) obj;
-        if (!Objects.equals(this.actor, other.actor)) {
-            return false;
-        }
-        if (!Objects.equals(this.location, other.location)) {
-            return false;
-        }
-        return true;
+    
+    public String getDescription() {
+        return description;
     }
 
     @Override

@@ -36,7 +36,7 @@ public class MainMenuView extends View {
         switch (selection) {
 
             case 'G':
-                this.startNewGame(); //??????????????????????in an example there was 'this.' in front of each function here; do I need it? ??????????????????????????????
+                this.startNewGame();
                 break;
             case 'S':
                 saveGame();
@@ -58,7 +58,6 @@ public class MainMenuView extends View {
     }
 
     private void startNewGame() {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         //create a new game
         GameController.createNewGaame(Quest.getPlayer());
 

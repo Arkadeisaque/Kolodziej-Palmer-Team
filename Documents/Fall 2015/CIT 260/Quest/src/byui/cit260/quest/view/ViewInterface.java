@@ -13,5 +13,5 @@ public interface ViewInterface {
     
     public void display();
     public String getInput();
-    public boolean doAction(String obj);
+    public boolean doAction(String stringSelection);
 }

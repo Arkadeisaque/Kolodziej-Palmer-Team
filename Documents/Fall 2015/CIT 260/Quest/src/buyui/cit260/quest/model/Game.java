@@ -18,7 +18,8 @@ public class Game implements Serializable{
     private int totalTime; 
     private Player newPlayer;
     private Map matrix;
-    
+    private InventoryItem[] inventory;
+
 
     public Game(int totalTime) {
         this.totalTime = totalTime;
@@ -52,6 +53,15 @@ public class Game implements Serializable{
     public void setTotalTime(int totalTime) {
         this.totalTime = totalTime;
     }
+    
+        public InventoryItem[] getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(InventoryItem[] inventory) {
+        this.inventory = inventory;
+    }
+    
 
     @Override
     public int hashCode() {
@@ -86,6 +96,14 @@ public class Game implements Serializable{
     @Override
     public String toString() {
         return "Game{" + "totalTime=" + totalTime + ", newPlayer=" + newPlayer + ", matrix=" + matrix + '}';
+    }
+
+    public void setMap(Map map) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setPlayer(Game game) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

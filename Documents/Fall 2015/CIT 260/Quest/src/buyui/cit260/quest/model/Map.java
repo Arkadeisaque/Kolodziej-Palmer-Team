@@ -18,8 +18,8 @@ public class Map implements Serializable {
 
     private int rowCount;
     private int columnCount;
-    private Location[][] location;
-    private ArrayList<Actor> actors; //correct the Actor class, create the enum list separate and import Actor class here
+    private Location[][] locations;
+
 
     public Map() {
     }
@@ -37,7 +37,7 @@ public class Map implements Serializable {
 
         // create 2-D array for Location objects
 
-        this.location  = new Location[rowCount][columnCount];
+        this.locations  = new Location[rowCount][columnCount];
 
         for (int row = 0; row < rowCount; row++){
             for (int column = 0; column < columnCount; column++) {
@@ -69,12 +69,12 @@ public class Map implements Serializable {
         this.columnCount = columnCount;
     }
 
-    public Location[][] getLocation() {
-        return location;
+    public Location[][] getLocations() {
+        return locations;
     }
 
-    public void setLocation(Location[][] location) {
-        this.location = location;
+    public void setLocations(Location[][] location) {
+        this.locations = location;
     }
 
     @Override
@@ -82,7 +82,7 @@ public class Map implements Serializable {
         int hash = 3;
         hash = 79 * hash + this.rowCount;
         hash = 79 * hash + this.columnCount;
-        hash = 79 * hash + Objects.hashCode(this.location);
+        hash = 79 * hash + Objects.hashCode(this.locations);
         return hash;
     }
 
@@ -101,7 +101,7 @@ public class Map implements Serializable {
         if (this.columnCount != other.columnCount) {
             return false;
         }
-        if (!Objects.equals(this.location, other.location)) {
+        if (!Objects.equals(this.locations, other.locations)) {
             return false;
         }
         return true;
@@ -109,7 +109,7 @@ public class Map implements Serializable {
 
     @Override
     public String toString() {
-        return "Map{" + "rowCount=" + rowCount + ", columnCount=" + columnCount + ", location=" + location + '}';
+        return "Map{" + "rowCount=" + rowCount + ", columnCount=" + columnCount + ", location=" + locations + '}';
     }
 
     /////////////////////////////////////
@@ -119,107 +119,107 @@ public class Map implements Serializable {
     public void init() {
         Location castle = new Location();
         //setup castle
-        location[2][8] = castle;
+        locations[2][8] = castle;
 
         Location tower = new Location();
         //setup tower
-        location[2][9] = tower;
+        locations[2][9] = tower;
 
         Location kitchen = new Location();
         //setup kitchen
-        location[1][8] = kitchen;
+        locations[1][8] = kitchen;
 
         Location dungeon = new Location();
         //setup dungeon
-        location[3][8] = dungeon;
+        locations[3][8] = dungeon;
 
         Location gallows = new Location();
         //setup gallows
-        location[1][7] = gallows;
+        locations[1][7] = gallows;
 
         Location northKingdom = new Location();
         //setup northKingdom
-        location[2][7] = northKingdom;
+        locations[2][7] = northKingdom;
 
         Location shoppe = new Location();
         //setup shoppe
-        location[3][7] = shoppe;
+        locations[3][7] = shoppe;
 
         Location blacksmith = new Location();
         //setup blacksmith
-        location[1][6] = blacksmith;
+        locations[1][6] = blacksmith;
 
         Location southKingdom = new Location();
         //setup southKingdom
-        location[2][6] = southKingdom;
+        locations[2][6] = southKingdom;
 
         Location farmer = new Location();
         //setup farmer
-        location[3][6] = farmer;
+        locations[3][6] = farmer;
 
         Location westlandWoods = new Location();
         //setup westlandWoods
-        location[1][5] = westlandWoods;
+        locations[1][5] = westlandWoods;
 
         Location crossroads = new Location();
         //setup crossroads
-        location[2][5] = crossroads;
+        locations[2][5] = crossroads;
 
         Location bridge = new Location();
         //setup bridge
-        location[3][5] = bridge;
+        locations[3][5] = bridge;
 
         Location enchantedGarden = new Location();
         //setup enchantedGarden
-        location[4][5] = enchantedGarden;
+        locations[4][5] = enchantedGarden;
 
         Location deepWestlandWoods = new Location();
         //setup deepWestlandWoods
-        location[1][4] = deepWestlandWoods;
+        locations[1][4] = deepWestlandWoods;
 
         Location mystic = new Location();
         //setup mystic
-        location[2][4] = mystic;
+        locations[2][4] = mystic;
 
         Location river = new Location();
         //setup river
-        location[3][4] = river;
+        locations[3][4] = river;
 
         Location gazebo = new Location();
         //setup gazebo
-        location[4][4] = gazebo;
+        locations[4][4] = gazebo;
 
         Location cave = new Location();
         //setup cave
-        location[1][3] = cave;
+        locations[1][3] = cave;
 
         Location docks = new Location();
         //setup docks
-        location[2][3] = docks;
+        locations[2][3] = docks;
 
         Location beach = new Location();
         //setup beach
-        location[3][3] = beach;
+        locations[3][3] = beach;
 
         Location deepCave = new Location();
         //setup deepCave
-        location[1][2] = deepCave;
+        locations[1][2] = deepCave;
 
         Location sea = new Location();
         //setup sea
-        location[2][2] = sea;
+        locations[2][2] = sea;
 
         Location westPirate = new Location();
         //setup westPirate
-        location[1][1] = westPirate;
+        locations[1][1] = westPirate;
 
         Location shipOfDeath = new Location();
         //setup shipOfDeath
-        location[2][1] = shipOfDeath;
+        locations[2][1] = shipOfDeath;
 
         Location eastShark = new Location();
         //setup eastShark
-        location[3][1] = eastShark;
+        locations[3][1] = eastShark;
     }
 
 }

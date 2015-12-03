@@ -15,16 +15,17 @@ import java.util.Objects;
 public class InventoryItem implements Serializable{
     
     //class instance variables
-    private final String inventoryType;
-    private final int quantityInStock;
-    private final Location[][] location; 
+    private String inventoryType;
+    private int quantityInStock;
+    private Location[][] location; 
+    private String name;
 
-    InventoryItem(String inventoryType) {
+    public InventoryItem(String inventoryType) {
         this.inventoryType = inventoryType;
-        location = new Location(1,1);
+ //       location = new Location(1,1);
     }
 
-    private InventoryItem() {
+    public InventoryItem() {
         
     }
     
@@ -82,9 +83,14 @@ public class InventoryItem implements Serializable{
         InventoryItem corn = new InventoryItem(); //setup corn
         name.setName("Corn");
     }
-        //?????????????????????I added this on NetBeans request, but I don't think it's right??????????????????????
-    private void setName(String orb) { 
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+    public String getName() {
+        return name;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
 
 }

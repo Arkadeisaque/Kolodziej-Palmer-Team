@@ -20,7 +20,7 @@ public class LocationController {
         
         map.init();
         
-        p.setLocation(map.getLocation() [2][8]);
+        p.setLocation(map.getLocations() [2][8]);
         
         return map;
     }

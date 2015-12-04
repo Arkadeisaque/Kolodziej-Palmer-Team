@@ -5,6 +5,7 @@
  */
 package buyui.cit260.quest.model;
 
+import byui.cit260.quest.view.ActorEnum;
 import java.io.Serializable;
 
 /**
@@ -16,6 +17,7 @@ public class Actor implements Serializable{
     //class instance variables
     private final String description;
     private final Location location;
+    private ActorEnum actor;
     
     Actor(String description) {
         this.description = description;

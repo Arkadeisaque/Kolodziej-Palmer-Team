@@ -9,7 +9,7 @@ import buyui.cit260.quest.model.Game;
 import buyui.cit260.quest.model.InventoryItem;
 import buyui.cit260.quest.model.Map;
 import buyui.cit260.quest.model.Player;
-import byui.cit260.quest.view.Item;
+import byui.cit260.quest.view.ItemEnum;
 import quest.Quest;
 
 /**
@@ -45,43 +45,43 @@ public class GameController {
 
         InventoryItem orb = new InventoryItem();
         orb.setName("Orb");
-        inventory[Item.orb.ordinal()] = orb;
+        inventory[ItemEnum.orb.ordinal()] = orb;
 
         InventoryItem enchantedApple = new InventoryItem();
         orb.setName("Enchanted Apple");
-        inventory[Item.enchantedApple.ordinal()] = enchantedApple;
+        inventory[ItemEnum.enchantedApple.ordinal()] = enchantedApple;
 
         InventoryItem bucket = new InventoryItem();
         orb.setName("Bucket");
-        inventory[Item.bucket.ordinal()] = bucket;
+        inventory[ItemEnum.bucket.ordinal()] = bucket;
 
         InventoryItem bucketWithWater = new InventoryItem();
         orb.setName("bucket With Water");
-        inventory[Item.bucketWithWater.ordinal()] = bucketWithWater;
+        inventory[ItemEnum.bucketWithWater.ordinal()] = bucketWithWater;
 
         InventoryItem gauntlets = new InventoryItem();
         orb.setName("Gauntlets");
-        inventory[Item.gauntlets.ordinal()] = gauntlets;
+        inventory[ItemEnum.gauntlets.ordinal()] = gauntlets;
 
         InventoryItem torch = new InventoryItem();
         orb.setName("Torch");
-        inventory[Item.torch.ordinal()] = torch;
+        inventory[ItemEnum.torch.ordinal()] = torch;
 
         InventoryItem meat = new InventoryItem();
         orb.setName("Meat");
-        inventory[Item.meat.ordinal()] = meat;
+        inventory[ItemEnum.meat.ordinal()] = meat;
 
         InventoryItem knife = new InventoryItem();
         orb.setName("Knife");
-        inventory[Item.knives.ordinal()] = knife;
+        inventory[ItemEnum.knives.ordinal()] = knife;
 
         InventoryItem map = new InventoryItem();
         orb.setName("Map");
-        inventory[Item.map.ordinal()] = map;
+        inventory[ItemEnum.map.ordinal()] = map;
 
         InventoryItem corn = new InventoryItem();
         orb.setName("Corn");
-        inventory[Item.corn.ordinal()] = corn;
+        inventory[ItemEnum.corn.ordinal()] = corn;
 
         return inventory;
     }

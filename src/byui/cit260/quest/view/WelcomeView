@@ -1,0 +1,77 @@
+package byui.cit260.quest.view;
+
+import java.util.Scanner;
+
+package byui.cit260.quest.view;
+
+import buyui.cit260.quest.model.Player;
+
+import java.util.Scanner;
+
+/**
+ * Created by Ryan on 11/16/2015.
+ */
+public class WelcomeView {
+
+    private final String MENU = "\n"
+            + "\n------------------------------------------"
+            + "\nWelcome to the quest!"
+            + "\n------------------------------------------"
+            + "\nKing Simon has summoned you, the head knight of the round table"
+            + "\nbecause a dark wizard has cursed the kingdom with a famine."
+            + "\nThe only way to restore the kingdom to its prosperous state "
+            + "\nis to go on a dangerous quest "
+            + "\nto the deep Westland Woods where you can find the Mystic Orb of Rejuvenation. "
+            + "\nOnce you find the Mystic Orb of Rejuvenation you will have to take it back to the castle "
+            + "\nwhere the king will thank you and Merlyn, the powerful wizard"
+            + "\ncan use it to restore the kingdom to its prosperous state."
+            + "\n------------------------------------------";
+
+    public WelcomeView(){
+
+
+
+    }
+
+
+    public void displayMenu(){
+
+        char selection = ' '; //??????????????why assigned value is never used? Why I need it then? ?????????????????
+        do {
+            System.out.println(MENU); //display the main menu
+
+            String input = this.getInput(); //get the user's selection
+            selection = input.toUpperCase().charAt(0); //get first character of string
+
+            this.doAction(selection); //do action based on selection
+        } while (selection != 'E'); //an selection is not "Exit"
+    }
+
+    public String getPlayerName(){
+
+        Scanner in = new Scanner(System.in);
+        String name = "";
+
+        while(name.length() < 2){
+            System.out.println("Please Enter your name: ");
+            name = in.nextLine();
+
+            if(name.length() < 2) {
+                System.out.println("Please enter a name with a least 2 characters");
+            }
+        }
+        return name;
+    }
+
+
+
+
+    public void displayPlayerNameBanner(Player p){
+
+        System.out.println("***********************************");
+        System.out.println("Welcome " + p.getName() + "!");
+        System.out.println("May your quest be successful.");
+        System.out.println("************************************");
+
+    }
+}

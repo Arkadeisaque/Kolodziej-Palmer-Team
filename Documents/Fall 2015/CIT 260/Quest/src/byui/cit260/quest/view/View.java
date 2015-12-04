@@ -40,7 +40,7 @@ public abstract class View implements ViewInterface {
         while(!valid) { //while a valid letter has not been retrieved               
             //get the letter from the keyboard and trim the blanks
             selection = keyboard.nextLine();
-            selection = selection.trim();
+            selection = selection.trim().toUpperCase();
                     
             //if the letter is invalid (out of the menu scope)
             if (selection.length() < 1) { //blanc value entered

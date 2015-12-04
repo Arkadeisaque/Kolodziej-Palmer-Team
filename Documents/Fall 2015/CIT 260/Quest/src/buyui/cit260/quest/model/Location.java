@@ -23,6 +23,7 @@ public class Location implements Serializable {
     private Player newPlayer;
     private Actor actor;
     private List<InventoryItem> items;
+    private String description;
 
     public Actor getActor() {
         return actor;
@@ -32,6 +33,14 @@ public class Location implements Serializable {
         this.actor = actor;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    
     public Location() {
         items = new ArrayList<>();
     }
@@ -83,6 +92,10 @@ public class Location implements Serializable {
 
     public void setItems(List<InventoryItem> items) {
         this.items = items;
+    }
+    
+    public void addItem(InventoryItem i) {
+        this.items.add(i);
     }
     
     @Override

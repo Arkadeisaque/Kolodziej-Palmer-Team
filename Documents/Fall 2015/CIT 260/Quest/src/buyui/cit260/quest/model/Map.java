@@ -22,15 +22,18 @@ public class Map implements Serializable {
 
 
     public Map() {
+        setup(10, 10);
     }
 
     public Map(int rowCount, int columnCount) {
-        
+        setup(rowCount, columnCount);
+    }
+    
+    public void setup(int rowCount, int columnCount) {
         if (rowCount < 1 || columnCount < 1) {
             System.out.println("The number of columns and rows must be > zero");
             return;
         }
-
 
         this.rowCount  = rowCount;
         this.columnCount  = columnCount;
@@ -51,7 +54,6 @@ public class Map implements Serializable {
                 }
         }
     }
-    
 
     public int getRowCount() {
         return rowCount;
@@ -118,8 +120,11 @@ public class Map implements Serializable {
 
     public void init() {
         Location castle = new Location();
+        castle.setDescription("a castle - large and old and awesome");
         //setup castle
         locations[2][8] = castle;
+        
+        //TODO set descriptions on all locations
 
         Location tower = new Location();
         //setup tower

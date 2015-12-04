@@ -19,6 +19,7 @@ public class InventoryItem implements Serializable{
     private int quantityInStock;
     private Location[][] location; 
     private String name;
+    private InventoryItem prerequisite;
 
     public InventoryItem(String inventoryType) {
         this.inventoryType = inventoryType;
@@ -28,8 +29,15 @@ public class InventoryItem implements Serializable{
     public InventoryItem() {
         
     }
-    
-    
+
+    public InventoryItem getPrerequisite() {
+        return prerequisite;
+    }
+
+    public void setPrerequisite(InventoryItem prerequisite) {
+        this.prerequisite = prerequisite;
+    }
+ 
     public String getInventoryType() {
         return inventoryType;
     }

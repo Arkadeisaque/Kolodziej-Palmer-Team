@@ -5,7 +5,12 @@
  */
 package byui.cit260.quest.control;
 
+import buyui.cit260.quest.model.InventoryItem;
+import buyui.cit260.quest.model.Location;
+import buyui.cit260.quest.model.Player;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  *
@@ -13,24 +18,41 @@ import java.util.Arrays;
  */
 public class ItemController {
 
-    //Author of below Ryan
-public static void main(String args[]){
-
-    //String array
-    String[] strNames = new String[]{"Corn", "Orb", "Enchanted Apple", "Bucket", "Bucket With Water", "Gauntlets", "Torch", "Meat", "Knife", "Map"};
-
-
-
-    //sort String array using sort method
-    Arrays.sort(strNames);
-
-    System.out.println("String array sorted (case sensitive)");
-
-    //print sorted elements
-    for(int i=0; i < strNames.length; i++){
-        System.out.println(strNames[i]);
-    }
-
-
-}
+   public String lookForItems(Location l, Player p) {
+       
+       String rtn = "You find: ";
+       
+       List<InventoryItem> toRemoveFromLocation = new ArrayList<InventoryItem>();
+       
+       if(l.getItems().size() > 0) { //If there are items here
+           for(InventoryItem i : l.getItems()) {
+               
+               if(i.getPrerequisite() != null) {
+                   //Check to see if player has prerequisite item
+                   InventoryItem prereq = i.getPrerequisite();
+                   if(p.getItems().contains(prereq)) {
+                       //You've got it so add it
+                       rtn += i.getName() + " ";
+                       p.getItems().add(i);
+                       toRemoveFromLocation.add(i);
+                   } else {
+                       rtn += "[See " + i.getName() + " but need " + prereq.getName() + "] ";
+                   }
+               } else {
+                   rtn += i.getName() + " ";
+                   p.getItems().add(i);
+                   toRemoveFromLocation.add(i);
+               }
+           }
+           
+           l.getItems().removeAll(toRemoveFromLocation);
+           
+           return rtn;
+       }
+       
+       rtn += "Nothing";
+       
+       return rtn;
+   }
+    
 }

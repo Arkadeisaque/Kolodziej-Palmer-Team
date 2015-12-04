@@ -49,12 +49,12 @@ public class MainMenuView extends View {
                 break;
             case 'E':
                 exitGame();
-                return false;
+                return true;
 
             default:
                 System.out.println("Invalid selection - Try again");
         }
-        return true;
+        return false;
     }
 
     private void startNewGame() {

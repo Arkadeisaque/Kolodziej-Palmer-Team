@@ -14,37 +14,43 @@ import java.util.Objects;
  */
 public class Game implements Serializable{
     
+    //Singleton instance
+    private static Game instance;
+    
     // class instance variables
     private int totalTime; 
-    private Player newPlayer;
-    private Map matrix;
+    private Player player;
+    private Map map;
     private InventoryItem[] inventory;
-
-
-    public Game(int totalTime) {
-        this.totalTime = totalTime;
-    }
-
-    public Player getNewPlayer() {
-        return newPlayer;
-    }
-
-    public void setNewPlayer(Player newPlayer) {
-        this.newPlayer = newPlayer;
-    }
-
-    public Map getMatrix() {
-        return matrix;
-    }
-
-    public void setMatrix(Map matrix) {
-        this.matrix = matrix;
-    }
-
-    public Game() {
+    
+    
+    public static Game getInstance() {
+        if(instance == null) {
+            instance = new Game();
+        }
         
+        return instance;
     }
     
+    private Game() {
+        
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    } 
 
     public int getTotalTime() {
         return totalTime;
@@ -67,8 +73,7 @@ public class Game implements Serializable{
     public int hashCode() {
         int hash = 7;
         hash = 37 * hash + this.totalTime;
-        hash = 37 * hash + Objects.hashCode(this.newPlayer);
-        hash = 37 * hash + Objects.hashCode(this.matrix);
+        hash = 37 * hash + Objects.hashCode(this.player);
         return hash;
     }
 
@@ -84,10 +89,7 @@ public class Game implements Serializable{
         if (this.totalTime != other.totalTime) {
             return false;
         }
-        if (!Objects.equals(this.newPlayer, other.newPlayer)) {
-            return false;
-        }
-        if (!Objects.equals(this.matrix, other.matrix)) {
+        if (!Objects.equals(this.player, other.player)) {
             return false;
         }
         return true;
@@ -95,15 +97,7 @@ public class Game implements Serializable{
 
     @Override
     public String toString() {
-        return "Game{" + "totalTime=" + totalTime + ", newPlayer=" + newPlayer + ", matrix=" + matrix + '}';
-    }
-
-    public void setMap(Map map) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setPlayer(Game game) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "Game{" + "totalTime=" + totalTime + ", newPlayer=";
     }
     
 }

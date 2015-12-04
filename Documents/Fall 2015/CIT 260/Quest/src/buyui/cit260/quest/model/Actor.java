@@ -16,10 +16,10 @@ public class Actor implements Serializable{
     
     //class instance variables
     private final String description;
-    private final Location location;
+    private Location location;
     private ActorEnum actor;
     
-    Actor(String description) {
+    public Actor(String description) {
         this.description = description;
         location = new Location();
     }
@@ -27,6 +27,11 @@ public class Actor implements Serializable{
 
     public Location getLocation() {
         return location;
+    }
+    
+    public void setLocation(Location l) {
+        this.location = l;
+        l.setActor(this);
     }
     
     public String getDescription() {
@@ -38,8 +43,16 @@ public class Actor implements Serializable{
         return "Actor{" + "name=" + actor + ", location=" + location + '}';
     }
 
-    public void setActor(String King) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void setActor(ActorEnum actorEnum) {
+        this.actor = actorEnum;
+    }
+    
+    public String getName() {
+        return actor.toString();
+    }
+    
+    public String getEnumDescription() {
+        return actor.getDescription();
     }
     
 }

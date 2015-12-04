@@ -5,7 +5,10 @@
  */
 package byui.cit260.quest.control;
 
+import buyui.cit260.quest.model.Actor;
+import buyui.cit260.quest.model.Game;
 import buyui.cit260.quest.model.Map;
+import byui.cit260.quest.view.ActorEnum;
 
 /**
  *
@@ -23,8 +26,21 @@ public class MovementController {
         return map;
     }
 
-    static void moveActorsToStartingLocation(Map map) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public static void moveActorsToStartingLocation(Map map) {
+        
+        //SETUP the player first
+        Game.getInstance().getPlayer().setLocation(map.getLocations()[2][8]);
+        
+        //SETUP everyone else
+        Actor king = new Actor("I'm the king");
+        king.setActor(ActorEnum.King);
+        king.setLocation(map.getLocations()[2][8]); //Assign the king to the castle
+        
+        
+        //TODO SETUP EVERYONE
     }
+    
+    
+    //TODO move the player
 
 }

@@ -11,16 +11,20 @@ package byui.cit260.quest.view;
  */
 public enum ActorEnum {
     
-    King,
-    Blacksmith,
-    Farmer,
-    Guard,
-    Mystic;
+    King("King sends you to the quest for the magic orb."),
+    Blacksmith("He is hungry and will trade some tools for food."),
+    Farmer("He will ask you for help to calculate the amount of grain to plant in his field."),
+    Guard("Guard will gives you a riddle so you can go out of the prison."),
+    Mystic("This men will gives you a good advice.");
+    
+    private String description;
+    
+    ActorEnum(String desc) {
+        description = desc;
+    }
+    
+    public String getDescription() {
+        return description;
+    }
     
 }
-
-//    King("King sends you to the quest for the magic orb."),
-//    Blacksmith("He is hungry and will trade some tools for food."),
-//    Farmer("He will ask you for help to calculate the amount of grain to plant in his field."),
-//    Guard("Guard will gives you a riddle so you can go out of the prison."),
-//    Mystic("This men will gives you a good advice.");

@@ -253,5 +253,6 @@ public class Map implements Serializable {
         //setup eastShark
         locations[3][1] = eastShark;
     }
+    
 
 }

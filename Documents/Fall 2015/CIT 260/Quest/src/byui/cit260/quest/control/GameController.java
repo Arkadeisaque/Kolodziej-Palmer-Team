@@ -46,16 +46,15 @@ public class GameController {
         // created array(list) of inventory items
         InventoryItem[] inventory = new InventoryItem[NUMBER_OF_INVENTORY_ITEMS];
 
+        InventoryItem corn = new InventoryItem();
+        corn.setName("Corn");
+        inventory[ItemEnum.corn.ordinal()] = corn;
+        map.getLocations()[3][6].addItem(corn);
+        
         InventoryItem orb = new InventoryItem();
         orb.setName("Orb");
         inventory[ItemEnum.orb.ordinal()] = orb;
         map.getLocations()[1][4].addItem(orb); //TODO more of this
-
-        InventoryItem enchantedApple = new InventoryItem();
-        enchantedApple.setName("Enchanted Apple");
-        inventory[ItemEnum.enchantedApple.ordinal()] = enchantedApple;
-        map.getLocations()[4][5].addItem(enchantedApple);
-        enchantedApple.setPrerequisite(water);
 
         InventoryItem bucket = new InventoryItem();
         bucket.setName("Bucket");
@@ -67,6 +66,12 @@ public class GameController {
         inventory[ItemEnum.water.ordinal()] = water;
         map.getLocations()[2][2].addItem(water);
         water.setPrerequisite(bucket);
+        
+        InventoryItem enchantedApple = new InventoryItem();
+        enchantedApple.setName("Enchanted Apple");
+        inventory[ItemEnum.enchantedApple.ordinal()] = enchantedApple;
+        map.getLocations()[4][5].addItem(enchantedApple);
+        enchantedApple.setPrerequisite(water);
 
         InventoryItem gauntlets = new InventoryItem();
         gauntlets.setName("Gauntlets");
@@ -96,11 +101,6 @@ public class GameController {
         mapItem.setName("Map Item");
         inventory[ItemEnum.mapItem.ordinal()] = mapItem;
         map.getLocations()[2][9].addItem(mapItem);
-
-        InventoryItem corn = new InventoryItem();
-        corn.setName("Corn");
-        inventory[ItemEnum.corn.ordinal()] = corn;
-        map.getLocations()[3][6].addItem(corn);
 
         return inventory;
     }

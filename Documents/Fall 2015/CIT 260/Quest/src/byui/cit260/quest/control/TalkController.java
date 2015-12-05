@@ -13,7 +13,7 @@ import buyui.cit260.quest.model.Location;
  */
 public class TalkController {
     public boolean talkToActor(Location location, String name){
-        if (location.getActor() != null) //if location has a actor, playe talks with him
+        if (location.getActor() != null) //if location has a actor, player talks with him
             return true;
         else {
             return false;

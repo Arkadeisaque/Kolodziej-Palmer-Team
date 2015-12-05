@@ -36,11 +36,26 @@ public class MovementController {
         king.setActor(ActorEnum.King);
         king.setLocation(map.getLocations()[2][8]); //Assign the king to the castle
         
+        Actor blacksmith = new Actor("He is hungry and will trade some tools for food.");
+        blacksmith.setActor(ActorEnum.Blacksmith);
+        blacksmith.setLocation(map.getLocations()[1][6]); //assign the blacksmith to the blacksmith location
         
-        //TODO SETUP EVERYONE
+        Actor farmer = new Actor("He will ask you for help to calculate the amount of grain to plant in his field.");
+        farmer.setActor(ActorEnum.Farmer);
+        farmer.setLocation(map.getLocations()[3][6]); //assign farmer to farm
+        
+        Actor guard = new Actor("Guard will gives you a riddle so you can go out of the prison.");
+        guard.setActor(ActorEnum.Guard);
+        guard.setLocation(map.getLocations()[3][8]); //Assign the guard to dungeon
+        
+        Actor mistic = new Actor("This men will gives you a good advice.");
+        mistic.setActor(ActorEnum.Mystic);
+        mistic.setLocation(map.getLocations()[2][4]); //Assign the mistic to the mystic location
+        
+        //TODO SETUP EVERYONE - done
     }
     
     
-    //TODO move the player
+    //TODO move the player !!!!!!!!!!!
 
 }

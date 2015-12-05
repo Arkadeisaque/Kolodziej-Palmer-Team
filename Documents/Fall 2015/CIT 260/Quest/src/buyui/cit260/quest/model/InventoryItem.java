@@ -70,8 +70,8 @@ public class InventoryItem implements Serializable{
         InventoryItem bucket = new InventoryItem(); //setup bucket
         name.setName("Bucket");
         
-        InventoryItem bucketWithWater = new InventoryItem(); //setup bucket with water
-        name.setName("Bucket With Water");
+        InventoryItem water = new InventoryItem(); //setup water
+        name.setName("Water");
         
         InventoryItem gauntlets = new InventoryItem(); //setup gauntlets
         name.setName("Gauntlets");
@@ -85,8 +85,8 @@ public class InventoryItem implements Serializable{
         InventoryItem knife = new InventoryItem(); //setup knife
         name.setName("Knife");
         
-        InventoryItem map = new InventoryItem(); //setup map
-        name.setName("Map");
+        InventoryItem mapItem = new InventoryItem(); //setup map
+        name.setName("Map Item");
         
         InventoryItem corn = new InventoryItem(); //setup corn
         name.setName("Corn");

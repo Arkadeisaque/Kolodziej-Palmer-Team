@@ -49,46 +49,58 @@ public class GameController {
         InventoryItem orb = new InventoryItem();
         orb.setName("Orb");
         inventory[ItemEnum.orb.ordinal()] = orb;
-        map.getLocations()[2][8].addItem(orb); //TODO more of this
+        map.getLocations()[1][4].addItem(orb); //TODO more of this
 
         InventoryItem enchantedApple = new InventoryItem();
         enchantedApple.setName("Enchanted Apple");
         inventory[ItemEnum.enchantedApple.ordinal()] = enchantedApple;
+        map.getLocations()[4][5].addItem(enchantedApple);
+        enchantedApple.setPrerequisite(water);
 
         InventoryItem bucket = new InventoryItem();
-        orb.setName("Bucket");
+        bucket.setName("Bucket");
         inventory[ItemEnum.bucket.ordinal()] = bucket;
+        map.getLocations()[1][8].addItem(bucket);
 
-        InventoryItem bucketWithWater = new InventoryItem();
-        orb.setName("bucket With Water");
-        inventory[ItemEnum.bucketWithWater.ordinal()] = bucketWithWater;
+        InventoryItem water = new InventoryItem();
+        water.setName("Water");
+        inventory[ItemEnum.water.ordinal()] = water;
+        map.getLocations()[2][2].addItem(water);
+        water.setPrerequisite(bucket);
 
         InventoryItem gauntlets = new InventoryItem();
-        orb.setName("Gauntlets");
+        gauntlets.setName("Gauntlets");
+        map.getLocations()[1][6].addItem(gauntlets);
+        gauntlets.setPrerequisite(corn);
         inventory[ItemEnum.gauntlets.ordinal()] = gauntlets;
+        
 
         InventoryItem knife = new InventoryItem();
         knife.setName("Knife");
         inventory[ItemEnum.knives.ordinal()] = knife;
-        Game.getInstance().getPlayer().getItems().add(knife); //TODO REMOVE THIS
+        map.getLocations()[1][8].addItem(knife);
+        //Game.getInstance().getPlayer().getItems().add(knife); //TODO REMOVE THIS
         
         InventoryItem torch = new InventoryItem();
         torch.setName("Torch");
-        map.getLocations()[2][8].addItem(torch); //TODO more of this
+        map.getLocations()[1][7].addItem(torch); //TODO more of this
         torch.setPrerequisite(knife);
         inventory[ItemEnum.torch.ordinal()] = torch;
 
         InventoryItem meat = new InventoryItem();
-        orb.setName("Meat");
+        meat.setName("Meat");
         inventory[ItemEnum.meat.ordinal()] = meat;
+        map.getLocations()[1][8].addItem(meat);
 
         InventoryItem mapItem = new InventoryItem();
-        orb.setName("Map");
-        inventory[ItemEnum.map.ordinal()] = mapItem;
+        mapItem.setName("Map Item");
+        inventory[ItemEnum.mapItem.ordinal()] = mapItem;
+        map.getLocations()[2][9].addItem(mapItem);
 
         InventoryItem corn = new InventoryItem();
-        orb.setName("Corn");
+        corn.setName("Corn");
         inventory[ItemEnum.corn.ordinal()] = corn;
+        map.getLocations()[3][6].addItem(corn);
 
         return inventory;
     }

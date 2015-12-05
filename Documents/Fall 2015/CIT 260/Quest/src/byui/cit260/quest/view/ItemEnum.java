@@ -14,12 +14,12 @@ public enum ItemEnum {
     orb,
     enchantedApple,
     bucket,
-    bucketWithWater,
+    water,
     gauntlets,
     torch,
     meat,
     knives,
-    map,
+    mapItem,
     corn;
 
 }

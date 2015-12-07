@@ -59,6 +59,7 @@ public class GameController {
         InventoryItem bucket = new InventoryItem();
         bucket.setName("Bucket");
         inventory[ItemEnum.bucket.ordinal()] = bucket;
+        map.getLocations()[2][8].addItem(bucket);
         map.getLocations()[1][8].addItem(bucket);
 
         InventoryItem water = new InventoryItem();
@@ -78,7 +79,6 @@ public class GameController {
         map.getLocations()[1][6].addItem(gauntlets);
         gauntlets.setPrerequisite(corn);
         inventory[ItemEnum.gauntlets.ordinal()] = gauntlets;
-        
 
         InventoryItem knife = new InventoryItem();
         knife.setName("Knife");

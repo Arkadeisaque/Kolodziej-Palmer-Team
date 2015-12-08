@@ -59,7 +59,7 @@ public class MainMenuView extends View {
 
     private void startNewGame() {
         //create a new game
-        GameController.createNewGaame(Quest.getPlayer());
+        GameController.createNewGame(Quest.getPlayer());
 
         //display the game menu
         GameMenuView gameMenu = new GameMenuView();

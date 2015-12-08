@@ -7,6 +7,7 @@ package byui.cit260.quest.control;
 
 import buyui.cit260.quest.model.Game;
 import buyui.cit260.quest.model.InventoryItem;
+import buyui.cit260.quest.model.LocationType;
 import buyui.cit260.quest.model.Map;
 import buyui.cit260.quest.model.Player;
 import byui.cit260.quest.view.ItemEnum;
@@ -17,78 +18,112 @@ import quest.Quest;
  * @author Arkadiusz
  */
 public class GameController {
-    
-    public static final int NUMBER_OF_INVENTORY_ITEMS = 20;
-    
-    public static void createNewGaame(Player player) {
 
+    public static final int NUMBER_OF_INVENTORY_ITEMS = 20;
+
+    public static void createNewGame(Player player) {
+
+//        Map map = new Map();
+        
+        
         Game game = Game.getInstance(); //create new game
         Quest.setCurrentGame(game); //save the game in Quest
 
         game.setPlayer(player); //save player in game  ???????????????????what is the difference between save in quest and save in game???????????????
 
         Map map = MovementController.createMap(); //create the map 
-        game.setMap(map); //save map in the game 
         
+        map.init();////new as of 12/8
+        Game.getInstance().setMap(map);////new as of 12/8
+        
+        game.setMap(map); //save map in the game 
         //create list of inventory items and save in the game
         InventoryItem[] inventoryList = GameController.createInventoryList();
         game.setInventory(inventoryList);
 
         //move actors to starting location 
         MovementController.moveActorsToStartingLocation(map);
+//        finishcreatePlayer();BReaks game
     }
-    
+///////////////////////////////////////////////////// 
+    ////////////////NEW/////////////////////Delete Below if breaks game.
+
+//    public static void finishcreatePlayer() {
+//        
+//        Player player = Game.getInstance().getPlayer();
+//
+//
+//        Map Map = Game.getInstance().getMap();
+//
+//        player.setLocation(Map.getCastleLocation());
+//        
+//    }
+
+    //////////////NEW/////////////////////////
+/////////////////////////////////////////////////////////
 
     private static InventoryItem[] createInventoryList() {
-        
+
         Map map = Game.getInstance().getMap();
-        
+
         // created array(list) of inventory items
         InventoryItem[] inventory = new InventoryItem[NUMBER_OF_INVENTORY_ITEMS];
+
+        InventoryItem corn = new InventoryItem();
+        corn.setName("Corn");
+        inventory[ItemEnum.corn.ordinal()] = corn;
+        map.getLocations()[3][6].addItem(corn);
 
         InventoryItem orb = new InventoryItem();
         orb.setName("Orb");
         inventory[ItemEnum.orb.ordinal()] = orb;
-        map.getLocations()[2][8].addItem(orb); //TODO more of this
+        map.getLocations()[1][4].addItem(orb); //TODO more of this
+
+        InventoryItem bucket = new InventoryItem();
+        bucket.setName("Bucket");
+        inventory[ItemEnum.bucket.ordinal()] = bucket;
+        map.getLocations()[2][8].addItem(bucket);
+        map.getLocations()[1][8].addItem(bucket);
+
+        InventoryItem water = new InventoryItem();
+        water.setName("Water");
+        inventory[ItemEnum.water.ordinal()] = water;
+        map.getLocations()[2][2].addItem(water);
+        water.setPrerequisite(bucket);
 
         InventoryItem enchantedApple = new InventoryItem();
         enchantedApple.setName("Enchanted Apple");
         inventory[ItemEnum.enchantedApple.ordinal()] = enchantedApple;
-
-        InventoryItem bucket = new InventoryItem();
-        orb.setName("Bucket");
-        inventory[ItemEnum.bucket.ordinal()] = bucket;
-
-        InventoryItem bucketWithWater = new InventoryItem();
-        orb.setName("bucket With Water");
-        inventory[ItemEnum.bucketWithWater.ordinal()] = bucketWithWater;
+        map.getLocations()[4][5].addItem(enchantedApple);
+        enchantedApple.setPrerequisite(water);
 
         InventoryItem gauntlets = new InventoryItem();
-        orb.setName("Gauntlets");
+        gauntlets.setName("Gauntlets");
+        map.getLocations()[1][6].addItem(gauntlets);
+        gauntlets.setPrerequisite(corn);
         inventory[ItemEnum.gauntlets.ordinal()] = gauntlets;
 
         InventoryItem knife = new InventoryItem();
         knife.setName("Knife");
         inventory[ItemEnum.knives.ordinal()] = knife;
-        Game.getInstance().getPlayer().getItems().add(knife); //TODO REMOVE THIS
-        
+        map.getLocations()[1][8].addItem(knife);
+        //Game.getInstance().getPlayer().getItems().add(knife); //TODO REMOVE THIS
+
         InventoryItem torch = new InventoryItem();
         torch.setName("Torch");
-        map.getLocations()[2][8].addItem(torch); //TODO more of this
+        map.getLocations()[1][7].addItem(torch); //TODO more of this
         torch.setPrerequisite(knife);
         inventory[ItemEnum.torch.ordinal()] = torch;
 
         InventoryItem meat = new InventoryItem();
-        orb.setName("Meat");
+        meat.setName("Meat");
         inventory[ItemEnum.meat.ordinal()] = meat;
+        map.getLocations()[1][8].addItem(meat);
 
         InventoryItem mapItem = new InventoryItem();
-        orb.setName("Map");
-        inventory[ItemEnum.map.ordinal()] = mapItem;
-
-        InventoryItem corn = new InventoryItem();
-        orb.setName("Corn");
-        inventory[ItemEnum.corn.ordinal()] = corn;
+        mapItem.setName("Map Item");
+        inventory[ItemEnum.mapItem.ordinal()] = mapItem;
+        map.getLocations()[2][9].addItem(mapItem);
 
         return inventory;
     }
@@ -111,9 +146,9 @@ public class GameController {
                 tempInventoryItem = inventoryList[j];
                 inventoryList[j] = inventoryList[j + 1];
                 inventoryList[j + 1] = tempInventoryItem;
-            
+
+            }
         }
+        return inventoryList;
     }
-    return inventoryList;    
-}  
 }

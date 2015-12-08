@@ -15,11 +15,9 @@ import java.util.Objects;
 public class Map implements Serializable {
 
     //class instnce variables
-
     private int rowCount;
     private int columnCount;
     private Location[][] locations;
-
 
     public Map() {
         setup(10, 10);
@@ -28,30 +26,29 @@ public class Map implements Serializable {
     public Map(int rowCount, int columnCount) {
         setup(rowCount, columnCount);
     }
-    
+
     public void setup(int rowCount, int columnCount) {
         if (rowCount < 1 || columnCount < 1) {
             System.out.println("The number of columns and rows must be > zero");
             return;
         }
 
-        this.rowCount  = rowCount;
-        this.columnCount  = columnCount;
+        this.rowCount = rowCount;
+        this.columnCount = columnCount;
 
         // create 2-D array for Location objects
+        this.locations = new Location[rowCount][columnCount];
 
-        this.locations  = new Location[rowCount][columnCount];
-
-        for (int row = 0; row < rowCount; row++){
+        for (int row = 0; row < rowCount; row++) {
             for (int column = 0; column < columnCount; column++) {
-                    //create and initialize new location object instance
-                    Location location = new Location();
-                    location.setColumn(column);
-                    location.setRow(row);
-                    location.setVisited(false);
+                //create and initialize new location object instance
+                Location location = new Location();
+                location.setColumn(column);
+                location.setRow(row);
+                location.setVisited(false);
 
-                    locations[row][column] = location;
-                }
+                locations[row][column] = location;
+            }
         }
     }
 
@@ -117,15 +114,14 @@ public class Map implements Serializable {
     /////////////////////////////////////
     //Methods
     /////////////////////////////////////
-
     public void init() {
+
         Location castle = new Location();
         castle.setDescription("a castle - large and old and awesome - a bucket is also visible");
         //setup castle
         locations[2][8] = castle;
-        
-        //TODO set descriptions on all locations
 
+        //TODO set descriptions on all locations
         Location tower = new Location();
         tower.setDescription("The view from the top of the tower is astounding-A quill and paper is visible");
         //setup tower
@@ -144,17 +140,17 @@ public class Map implements Serializable {
         locations[3][8] = dungeon;
 
         Location gallows = new Location();
-        gallows.setDescription("As you enter the gallows you feel like are being watched. There is a circle of torches around the edge. If you approach a torch you are ask if you would like to pick it up and carry it with you. However, the torch is tied down, so only if you took the knives from the kitchen. ");       
+        gallows.setDescription("As you enter the gallows you feel like are being watched. There is a circle of torches around the edge. If you approach a torch you are ask if you would like to pick it up and carry it with you. However, the torch is tied down, so only if you took the knives from the kitchen. ");
         //setup gallows
         locations[1][7] = gallows;
 
         Location northKingdom = new Location();
-        northKingdom.setDescription("The player is presented with 4 obvious exits. North to the castle, east to the shoppe, west to the gallows, or south to the south kingdom. ");       
+        northKingdom.setDescription("The player is presented with 4 obvious exits. North to the castle, east to the shoppe, west to the gallows, or south to the south kingdom. ");
         //setup northKingdom
         locations[2][7] = northKingdom;
 
         Location shoppe = new Location();
-        shoppe.setDescription("At the shoppe you can buy/exchange different items, such as different quest items (like the bucket or torch).");       
+        shoppe.setDescription("At the shoppe you can buy/exchange different items, such as different quest items (like the bucket or torch).");
         //setup shoppe
         locations[3][7] = shoppe;
 
@@ -164,17 +160,17 @@ public class Map implements Serializable {
         locations[1][6] = blacksmith;
 
         Location southKingdom = new Location();
-        southKingdom.setDescription("The player is presented with a screen that describes the kingdom visually. Obvious exits will be North to the castle, South to the Crossroads, west to the blacksmith, and east to the farmer. No items or people are seen.");        
+        southKingdom.setDescription("The player is presented with a screen that describes the kingdom visually. Obvious exits will be North to the castle, South to the Crossroads, west to the blacksmith, and east to the farmer. No items or people are seen.");
         //setup southKingdom
         locations[2][6] = southKingdom;
 
         Location farmer = new Location();
-        farmer.setDescription("The farmer looks stressed out. You see a fox, some corn, and a chicken. Obvious exits are west to the kingdom.");        
+        farmer.setDescription("The farmer looks stressed out. You see a fox, some corn, and a chicken. Obvious exits are west to the kingdom.");
         //setup farmer
         locations[3][6] = farmer;
 
         Location westlandWoods = new Location();
-        westlandWoods.setDescription("The player will try to enter but will be forced out because of a mystical force. The woods must be enchanted. ");        
+        westlandWoods.setDescription("The player will try to enter but will be forced out because of a mystical force. The woods must be enchanted. ");
         //setup westlandWoods
         locations[1][5] = westlandWoods;
 
@@ -253,6 +249,47 @@ public class Map implements Serializable {
         //setup eastShark
         locations[3][1] = eastShark;
     }
-    
 
+    public Location[][] getlocations() {
+        return locations;
+    }
+
+    public void setlocations(Location[][] locations) {
+        this.locations = locations;
+    }
+
+    public Location getLocation(int row, int column) {
+        if (row < 0 || row > locations.length) {
+            return null;
+        }
+        if (column < 0 || column > locations[0].length) {
+            return null;
+        }
+        return locations[row][column];
+    }
+
+    public String getMapDisplay() {
+        String rtn = "";
+
+        for (int row = 0; row < locations.length; row++) {
+            for (int column = 0; column < locations[0].length; column++) {
+                rtn += "[" + locations[row][column].getLocationType() + "]";
+            }
+            rtn += "\n";
+        }
+        return rtn;
+    }
+
+    public Location getCastleLocation() {
+        for (int row = 0; row < locations.length; row++) {
+            for (int column = 0; column < locations[0].length; column++) {
+                if (locations[row][column].getLocationType() == LocationType.Castle) {
+                    return locations[row][column];
+                }
+
+            }
+
+        }
+        return null;
+    }
 }

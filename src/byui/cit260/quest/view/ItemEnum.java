@@ -19,7 +19,9 @@ public enum ItemEnum {
     torch,
     meat,
     knives,
-    map,
+    mapItem,
+    water,
     corn;
 
+    
 }

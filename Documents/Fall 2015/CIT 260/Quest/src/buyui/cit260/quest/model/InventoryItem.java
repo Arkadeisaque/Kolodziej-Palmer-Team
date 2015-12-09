@@ -12,7 +12,7 @@ import java.util.Objects;
  *
  * @author Arkadiusz
  */
-public class InventoryItem implements Serializable{
+public class InventoryItem implements Serializable, Comparable {
     
     //class instance variables
     private String inventoryType;
@@ -98,6 +98,18 @@ public class InventoryItem implements Serializable{
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        if (o == null){
+            return -1;
+        }
+        InventoryItem a = (InventoryItem) o;
+        if (this.getName() == null){
+            return 1;
+        }
+        return this.getName().compareTo(a.getName());
     }
 
 

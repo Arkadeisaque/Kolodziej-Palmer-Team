@@ -77,7 +77,7 @@ public class GameMenuView extends View {
 
         //for each inventory item
         for (InventoryItem inventoryItem : inventory) {
-            System.out.println(inventoryItem.getInventoryType());
+            System.out.println(inventoryItem.getName());
         }
     }    
 

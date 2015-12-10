@@ -12,6 +12,7 @@ import buyui.cit260.quest.model.Map;
 import byui.cit260.quest.view.ActorEnum;
 
 import buyui.cit260.quest.model.Player;
+import byui.cit260.quest.exceptions.MovementControllerException;
 
 /**
  *
@@ -19,12 +20,12 @@ import buyui.cit260.quest.model.Player;
  */
 public class MovementController {
 
-    public boolean moveNorth(Player p) {
+    public boolean moveNorth(Player p) throws MovementControllerException {
         int row = p.getLocation().getRow();
         int column = p.getLocation().getColumn();
 
         if (row == 0) {
-            return false;//Throw exception
+            throw new MovementControllerException("This is the end of the map. Chose another direction.");
         }
         Map gameMap = Game.getInstance().getMap();
 
@@ -34,12 +35,12 @@ public class MovementController {
         return true;
     }
 
-    public boolean moveEast(Player p) {
+    public boolean moveEast(Player p) throws MovementControllerException {
         int row = p.getLocation().getRow();
         int column = p.getLocation().getColumn();
 
-        if (column == 0) {
-            return false;//Throw exception
+        if (column == 9) {
+            throw new MovementControllerException("This is the end of the map. Chose another direction."); //Throw exception
         }
         Map gameMap = Game.getInstance().getMap();
 
@@ -53,7 +54,7 @@ public class MovementController {
         int row = p.getLocation().getRow();
         int column = p.getLocation().getColumn();
 
-        if (row == 0) {
+        if (row == 10) {
             return false;//Throw exception
         }
         Map gameMap = Game.getInstance().getMap();
@@ -68,7 +69,7 @@ public class MovementController {
         int row = p.getLocation().getRow();
         int column = p.getLocation().getColumn();
 
-        if (column == 0) {
+        if (column == 10) {
             return false;//Throw exception
         }
         Map gameMap = Game.getInstance().getMap();

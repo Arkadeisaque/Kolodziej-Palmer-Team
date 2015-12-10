@@ -11,6 +11,7 @@ import byui.cit260.quest.control.GameController;
 import byui.cit260.quest.control.ItemController;
 import buyui.cit260.quest.model.Map;
 import byui.cit260.quest.control.MovementController;
+import byui.cit260.quest.exceptions.MovementControllerException;
 
 /**
  *
@@ -109,12 +110,21 @@ public class GameMenuView extends View {
     }
      private void moveNorth() {
         MovementController mc = new MovementController();
-        mc.moveNorth(Game.getInstance().getPlayer());
+        try {
+            mc.moveNorth(Game.getInstance().getPlayer());  
+        } catch (MovementControllerException me) {
+            System.out.println(me.getMessage());
+        }
+        
     }
 
     private void moveEast() {
         MovementController mc = new MovementController();
-        mc.moveEast(Game.getInstance().getPlayer());
+        try {
+            mc.moveEast(Game.getInstance().getPlayer());
+        } catch (MovementControllerException me) {
+            System.out.println(me.getMessage());
+        }
     }
 
     private void moveSouth() {

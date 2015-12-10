@@ -23,11 +23,11 @@ public class Map implements Serializable {
         setup(10, 10);
     }
 
-    public Map(int rowCount, int columnCount) {
-        setup(rowCount, columnCount);
+    public Map(int columnCount, int rowCount) {
+        setup(columnCount, rowCount);
     }
 
-    public void setup(int rowCount, int columnCount) {
+    public void setup(int columnCount, int rowCount) {
         if (rowCount < 1 || columnCount < 1) {
             System.out.println("The number of columns and rows must be > zero");
             return;

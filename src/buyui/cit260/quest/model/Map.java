@@ -159,31 +159,49 @@ public class Map implements Serializable {
         Location northKingdom = new Location();
         northKingdom.setDescription("The player is presented with 4 obvious exits. North to the castle, east to the shoppe, west to the gallows, or south to the south kingdom. ");
         //setup northKingdom
+        northKingdom.setRow(2);
+        northKingdom.setColumn(7);
+        northKingdom.setLocationType(LocationType.NorthKingdom);
         locations[2][7] = northKingdom;
 
         Location shoppe = new Location();
         shoppe.setDescription("At the shoppe you can buy/exchange different items, such as different quest items (like the bucket or torch).");
         //setup shoppe
+        shoppe.setRow(2);
+        shoppe.setColumn(8);
+        shoppe.setLocationType(LocationType.Shoppe);
         locations[3][7] = shoppe;
 
         Location blacksmith = new Location();
         blacksmith.setDescription("The blacksmith is hungry because of the famine and wants food. You see a pair of iron gauntlets that he has made. Obvious exits are east to the kingdom.");
         //setup blacksmith
+        blacksmith.setRow(2);
+        blacksmith.setColumn(8);
+        blacksmith.setLocationType(LocationType.Blacksmith);
         locations[1][6] = blacksmith;
 
         Location southKingdom = new Location();
         southKingdom.setDescription("The player is presented with a screen that describes the kingdom visually. Obvious exits will be North to the castle, South to the Crossroads, west to the blacksmith, and east to the farmer. No items or people are seen.");
         //setup southKingdom
+          southKingdom.setRow(2);
+        southKingdom.setColumn(6);
+        southKingdom.setLocationType(LocationType.SouthKingdom);
         locations[2][6] = southKingdom;
 
         Location farmer = new Location();
         farmer.setDescription("The farmer looks stressed out. You see a fox, some corn, and a chicken. Obvious exits are west to the kingdom.");
         //setup farmer
+          farmer.setRow(3);
+        farmer.setColumn(6);
+        farmer.setLocationType(LocationType.Farmer);
         locations[3][6] = farmer;
 
         Location westlandWoods = new Location();
         westlandWoods.setDescription("The player will try to enter but will be forced out because of a mystical force. The woods must be enchanted. ");
         //setup westlandWoods
+          blacksmith.setRow(2);
+        blacksmith.setColumn(8);
+        blacksmith.setLocationType(LocationType.Blacksmith);
         locations[1][5] = westlandWoods;
 
         Location crossroads = new Location();

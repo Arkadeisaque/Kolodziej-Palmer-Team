@@ -10,6 +10,7 @@ import buyui.cit260.quest.model.Game;
 import buyui.cit260.quest.model.Location;
 import buyui.cit260.quest.model.Map;
 import buyui.cit260.quest.model.Player;
+import byui.cit260.quest.exceptions.MovementControllerException;
 import byui.cit260.quest.view.ActorEnum;
 
 /**
@@ -18,27 +19,28 @@ import byui.cit260.quest.view.ActorEnum;
  */
 public class MovementController {
 
-    public boolean moveNorth(Player p) {
+    public boolean moveNorth(Player p) throws MovementControllerException{
         int row = p.getLocation().getRow();
         int column = p.getLocation().getColumn();
 
         if (row == 0) {
-            return false;//Throw exception
+            throw new MovementControllerException("This is the end of the map.");
+//            return false;
         }
         Map gameMap = Game.getInstance().getMap();
-
+        
         Location newLocation = gameMap.getLocation(row - 1, column);
 
         p.setLocation(newLocation);
         return true;
     }
 
-    public boolean moveEast(Player p) {
+    public boolean moveEast(Player p) throws MovementControllerException{
         int row = p.getLocation().getRow();
         int column = p.getLocation().getColumn();
 
-        if (column == 0) {
-            return false;//Throw exception
+        if (column == 9) {
+            throw new MovementControllerException("This is the end of the map.");
         }
         Map gameMap = Game.getInstance().getMap();
 
@@ -48,12 +50,12 @@ public class MovementController {
         return true;
     }
 
-    public boolean moveSouth(Player p) {
+    public boolean moveSouth(Player p) throws MovementControllerException{
         int row = p.getLocation().getRow();
         int column = p.getLocation().getColumn();
 
-        if (row == 0) {
-            return false;//Throw exception
+        if (row == 4) {
+            throw new MovementControllerException("This is the end of the map.");
         }
         Map gameMap = Game.getInstance().getMap();
 
@@ -63,12 +65,12 @@ public class MovementController {
         return true;
     }
 
-    public boolean moveWest(Player p) {
+    public boolean moveWest(Player p) throws MovementControllerException{
         int row = p.getLocation().getRow();
         int column = p.getLocation().getColumn();
 
-        if (column == 0) {
-            return false;//Throw exception
+        if (column == 1) {
+            throw new MovementControllerException("This is the end of the map.");
         }
         Map gameMap = Game.getInstance().getMap();
 

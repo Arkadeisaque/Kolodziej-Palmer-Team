@@ -23,6 +23,7 @@ public class Player implements Serializable {
     private String type;
     private Location location;
     private List<InventoryItem> items;
+    public Object getLocation;
 
     public Player() {
         items = new ArrayList<>();

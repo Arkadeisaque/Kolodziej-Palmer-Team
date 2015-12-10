@@ -7,6 +7,7 @@ package byui.cit260.quest.control;
 
 import buyui.cit260.quest.model.Game;
 import buyui.cit260.quest.model.InventoryItem;
+import buyui.cit260.quest.model.LocationType;
 import buyui.cit260.quest.model.Map;
 import buyui.cit260.quest.model.Player;
 import byui.cit260.quest.view.ItemEnum;
@@ -29,6 +30,9 @@ public class GameController {
         game.setPlayer(player); //save player in game  ???????????????????what is the difference between save in quest and save in game???????????????
 
         Map map = MovementController.createMap(); //create the map 
+        map.init();////new as of 12/8
+        Game.getInstance().setMap(map);////new as of 12/8
+        
         game.setMap(map); //save map in the game 
 
         //create list of inventory items and save in the game
@@ -37,6 +41,7 @@ public class GameController {
 
         //move actors to starting location 
         MovementController.moveActorsToStartingLocation(map);
+        
     }
 
     private static InventoryItem[] createInventoryList() {

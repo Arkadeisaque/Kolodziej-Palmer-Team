@@ -14,7 +14,7 @@ import java.util.Objects;
  */
 public class Map implements Serializable {
 
-    //class instnce variables
+    //class instnce variables 
     private int rowCount;
     private int columnCount;
     private Location[][] locations;
@@ -249,4 +249,46 @@ public class Map implements Serializable {
         locations[3][1] = eastShark;
     }
 
+    public Location[][] getlocations() {
+        return locations;
+    }
+
+    public void setlocations(Location[][] locations) {
+        this.locations = locations;
+    }
+
+    public Location getLocation(int row, int column) {
+        if (row < 0 || row > locations.length) {
+            return null;
+        }
+        if (column < 0 || column > locations[0].length) {
+            return null;
+        }
+        return locations[row][column];
+    }
+
+    public String getMapDisplay() {
+        String rtn = "";
+
+        for (int row = 0; row < locations.length; row++) {
+            for (int column = 0; column < locations[0].length; column++) {
+                rtn += "[" + locations[row][column].getLocationType() + "]";
+            }
+            rtn += "\n";
+        }
+        return rtn;
+    }
+
+    public Location getCastleLocation() {
+        for (int row = 0; row < locations.length; row++) {
+            for (int column = 0; column < locations[0].length; column++) {
+                if (locations[row][column].getLocationType() == LocationType.Castle) {
+                    return locations[row][column];
+                }
+
+            }
+
+        }
+        return null;
+    }
 }

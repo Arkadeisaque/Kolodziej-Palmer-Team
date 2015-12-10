@@ -24,7 +24,12 @@ public class Location implements Serializable {
     private Actor actor;
     private List<InventoryItem> items;
     private String description;
+    private LocationType locationType;
 
+    public LocationType getLocationType() {
+        return locationType;
+    }
+    
     public Actor getActor() {
         return actor;
     }
@@ -140,5 +145,6 @@ public class Location implements Serializable {
     public String toString() {
         return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", amountRemaining=" + amountRemaining + ", newPlayer=" + newPlayer + '}';
     }
-  
+ 
+    
 }

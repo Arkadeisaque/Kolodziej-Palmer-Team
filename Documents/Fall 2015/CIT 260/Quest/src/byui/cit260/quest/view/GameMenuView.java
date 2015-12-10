@@ -9,6 +9,8 @@ import buyui.cit260.quest.model.Game;
 import buyui.cit260.quest.model.InventoryItem;
 import byui.cit260.quest.control.GameController;
 import byui.cit260.quest.control.ItemController;
+import buyui.cit260.quest.model.Map;
+import byui.cit260.quest.control.MovementController;
 
 /**
  *
@@ -19,11 +21,15 @@ public class GameMenuView extends View {
     public GameMenuView() {
         super("\n"
                 + "\n------------------------------------------"
-                + "\nS - look items"
-                + "\nV - Travel to the new location"
+                + "\nH - look items"
+                + "\nV - View Map"
                 + "\nI - View list of items in inventory"
                 + "\nA - View list of actors"
                 + "\nL - View current location"
+                + "\nN - Move North"
+                + "\nE - Move East"
+                + "\nS - Move South"
+                + "\nW - Move West"
                 + "\n------------------------------------------");
     }
 
@@ -32,7 +38,7 @@ public class GameMenuView extends View {
         char selection = stringSelection.charAt(0);
         switch (selection) {
 
-            case 'S':
+            case 'H':
                 this.lookForItems();
                 break;
             case 'V':
@@ -47,7 +53,19 @@ public class GameMenuView extends View {
             case 'L':
                 this.showLocation();
                 break;
-            case 'Q' :
+            case 'N':
+                this.moveNorth();
+                break;
+            case 'E':
+                this.moveEast();
+                break;
+            case 'S':
+                this.moveSouth();
+                break;
+            case 'W':
+                this.moveWest();
+                break;
+            case 'Q'://Do we need this
                 return true;
             default:
                 System.out.println("Invalid selection - Try again");
@@ -57,16 +75,20 @@ public class GameMenuView extends View {
 
     private void lookForItems() {
         ItemController ic = new ItemController();
-        
+
         System.out.println(ic.lookForItems(Game.getInstance().getPlayer().getLocation(), Game.getInstance().getPlayer()));
     }
-    
+
     private void showLocation() {
+        //Added a Grid Location to go with the description
+        int row = Game.getInstance().getPlayer().getLocation().getRow();
+        int column = Game.getInstance().getPlayer().getLocation().getColumn();
+        System.out.println("Player is at: " + row + ", " + column);
         System.out.println("You are at " + Game.getInstance().getPlayer().getLocation().getDescription());
     }
-    
+
     private void displayMap() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println(Game.getInstance().getMap().getMapDisplay());
     }
 
     private void viewInventory() {
@@ -79,13 +101,29 @@ public class GameMenuView extends View {
         for (InventoryItem inventoryItem : inventory) {
             System.out.println(inventoryItem.getName());
         }
-    }    
-
-    
+    }
 
     private void viewActors() {
         System.out.println("You're standing by the " + Game.getInstance().getPlayer().getLocation().getActor().getName());
         System.out.println("He says " + Game.getInstance().getPlayer().getLocation().getActor().getEnumDescription());
     }
+     private void moveNorth() {
+        MovementController mc = new MovementController();
+        mc.moveNorth(Game.getInstance().getPlayer());
+    }
 
+    private void moveEast() {
+        MovementController mc = new MovementController();
+        mc.moveEast(Game.getInstance().getPlayer());
+    }
+
+    private void moveSouth() {
+        MovementController mc = new MovementController();
+        mc.moveSouth(Game.getInstance().getPlayer());
+    }
+
+    private void moveWest() {
+        MovementController mc = new MovementController();
+        mc.moveWest(Game.getInstance().getPlayer());
+    }
 }

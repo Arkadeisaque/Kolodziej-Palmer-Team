@@ -117,13 +117,19 @@ public class Map implements Serializable {
     public void init() {
         Location castle = new Location();
         castle.setDescription("a castle - large and old and awesome - a bucket is also visible");
+        castle.setRow(2);
+        castle.setColumn(8);
+        castle.setLocationType(LocationType.Castle);
         //setup castle
         locations[2][8] = castle;
 
         //TODO set descriptions on all locations
         Location tower = new Location();
         tower.setDescription("The view from the top of the tower is astounding-A quill and paper is visible");
+        tower.setLocationType(LocationType.Tower);
         //setup tower
+        tower.setRow(2);
+        tower.setColumn(9);
         locations[2][9] = tower;
 
         Location kitchen = new Location();
@@ -131,17 +137,23 @@ public class Map implements Serializable {
 
         //setup kitchen
         locations[1][8] = kitchen;
+        kitchen.setRow(1);
+        kitchen.setColumn(8);
 
         Location dungeon = new Location();
         dungeon.setDescription("The Dungeon has two cells and a guard, with one cell initially occupied. You can go down and talk to the guard and prisoner, and the guard will mention he likes riddles. If you try to steal from the shoppe, blacksmith, or farmer then you end up in the dungeon. In order to get out, you have to solve the riddle from the guard.");
         //setup dungeon
         //TODO create a riddle to get out of dungeon
         locations[3][8] = dungeon;
+        dungeon.setRow(3);
+        dungeon.setColumn(8);
 
         Location gallows = new Location();
         gallows.setDescription("As you enter the gallows you feel like are being watched. There is a circle of torches around the edge. If you approach a torch you are ask if you would like to pick it up and carry it with you. However, the torch is tied down, so only if you took the knives from the kitchen. ");
         //setup gallows
         locations[1][7] = gallows;
+        gallows.setRow(1);
+        gallows.setColumn(7);
 
         Location northKingdom = new Location();
         northKingdom.setDescription("The player is presented with 4 obvious exits. North to the castle, east to the shoppe, west to the gallows, or south to the south kingdom. ");

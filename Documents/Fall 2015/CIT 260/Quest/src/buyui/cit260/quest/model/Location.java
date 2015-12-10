@@ -15,7 +15,9 @@ import java.util.Objects;
  * @author Arkadiusz
  */
 public class Location implements Serializable {
+
     //class instance variables
+
     private int row;
     private int column;
     private boolean visited;
@@ -26,10 +28,14 @@ public class Location implements Serializable {
     private String description;
     private LocationType locationType;
 
+    public void setLocationType(LocationType l) {
+        this.locationType = l;
+    }
+
     public LocationType getLocationType() {
         return locationType;
     }
-    
+
     public Actor getActor() {
         return actor;
     }
@@ -45,11 +51,10 @@ public class Location implements Serializable {
     public void setDescription(String description) {
         this.description = description;
     }
-    
+
     public Location() {
         items = new ArrayList<>();
     }
-    
 
     public int getRow() {
         return row;
@@ -98,11 +103,11 @@ public class Location implements Serializable {
     public void setItems(List<InventoryItem> items) {
         this.items = items;
     }
-    
+
     public void addItem(InventoryItem i) {
         this.items.add(i);
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 7;
@@ -145,6 +150,5 @@ public class Location implements Serializable {
     public String toString() {
         return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", amountRemaining=" + amountRemaining + ", newPlayer=" + newPlayer + '}';
     }
- 
-    
+
 }

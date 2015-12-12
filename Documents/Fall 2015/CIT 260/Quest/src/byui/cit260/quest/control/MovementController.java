@@ -50,12 +50,12 @@ public class MovementController {
         return true;
     }
 
-    public boolean moveSouth(Player p) {
+    public boolean moveSouth(Player p) throws MovementControllerException {
         int row = p.getLocation().getRow();
         int column = p.getLocation().getColumn();
 
         if (row == 10) {
-            return false;//Throw exception
+            throw new MovementControllerException("This is the end of the map. Chose another direction."); //Throw exception
         }
         Map gameMap = Game.getInstance().getMap();
 
@@ -65,12 +65,12 @@ public class MovementController {
         return true;
     }
 
-    public boolean moveWest(Player p) {
+    public boolean moveWest(Player p) throws MovementControllerException {
         int row = p.getLocation().getRow();
         int column = p.getLocation().getColumn();
 
         if (column == 10) {
-            return false;//Throw exception
+            throw new MovementControllerException("This is the end of the map. Chose another direction."); //Throw exception
         }
         Map gameMap = Game.getInstance().getMap();
 

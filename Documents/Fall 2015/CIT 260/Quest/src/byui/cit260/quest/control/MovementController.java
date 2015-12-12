@@ -10,9 +10,9 @@ import buyui.cit260.quest.model.Game;
 import buyui.cit260.quest.model.Location;
 import buyui.cit260.quest.model.Map;
 import byui.cit260.quest.view.ActorEnum;
-
-import buyui.cit260.quest.model.Player;
 import byui.cit260.quest.exceptions.MovementControllerException;
+import buyui.cit260.quest.model.Player;
+
 
 /**
  *

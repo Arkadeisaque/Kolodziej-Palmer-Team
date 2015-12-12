@@ -129,11 +129,19 @@ public class GameMenuView extends View {
 
     private void moveSouth() {
         MovementController mc = new MovementController();
-        mc.moveSouth(Game.getInstance().getPlayer());
+        try{
+           mc.moveSouth(Game.getInstance().getPlayer());
+       }catch(MovementControllerException me){
+           System.out.println(me.getMessage());
+       }
     }
 
     private void moveWest() {
         MovementController mc = new MovementController();
-        mc.moveWest(Game.getInstance().getPlayer());
+        try{
+           mc.moveWest(Game.getInstance().getPlayer());
+       }catch(MovementControllerException me){
+           System.out.println(me.getMessage());
+       }
     }
 }

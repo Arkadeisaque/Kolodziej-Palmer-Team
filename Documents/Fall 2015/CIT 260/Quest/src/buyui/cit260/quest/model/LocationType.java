@@ -36,6 +36,6 @@ public enum LocationType {
     DeepCave,
     Sea,
     WestPirate,
-    ShipofDeath,
+    ShipOfDeath,
     EastShark;
 }

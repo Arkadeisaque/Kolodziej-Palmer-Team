@@ -32,6 +32,10 @@ DeepCave,
 Sea,
 WestPirate,
 ShipofDeath,
+Cliff,
+MTNS,
+Pond,
+Lake,
 EastShark;
     
 }

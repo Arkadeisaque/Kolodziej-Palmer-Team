@@ -43,6 +43,9 @@ public class ItemController {
                    p.getItems().add(i);
                    toRemoveFromLocation.add(i);
                }
+               
+               
+                     
            }
            
            l.getItems().removeAll(toRemoveFromLocation);

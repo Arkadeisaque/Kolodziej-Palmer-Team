@@ -23,7 +23,7 @@ public class GameController {
 
     public static void createNewGame(Player player) {
 
-//        Map map = new Map();
+//        Map map = new Map(); //new 12/8
         
         
         Game game = Game.getInstance(); //create new game
@@ -43,12 +43,12 @@ public class GameController {
 
         //move actors to starting location 
         MovementController.moveActorsToStartingLocation(map);
-//        finishcreatePlayer();BReaks game
+//        finishCreatePlayer();BReaks game
     }
 ///////////////////////////////////////////////////// 
     ////////////////NEW/////////////////////Delete Below if breaks game.
 
-//    public static void finishcreatePlayer() {
+//    public static void finishCreatePlayer() {
 //        
 //        Player player = Game.getInstance().getPlayer();
 //

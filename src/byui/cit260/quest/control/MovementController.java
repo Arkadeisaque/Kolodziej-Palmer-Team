@@ -10,6 +10,7 @@ import buyui.cit260.quest.model.Game;
 import buyui.cit260.quest.model.Location;
 import buyui.cit260.quest.model.Map;
 import buyui.cit260.quest.model.Player;
+import byui.cit260.quest.exceptions.MovementControllerException;
 import byui.cit260.quest.view.ActorEnum;
 
 /**
@@ -17,62 +18,68 @@ import byui.cit260.quest.view.ActorEnum;
  * @author Arkadiusz
  */
 public class MovementController {
-    public boolean moveNorth(Player p){
+
+    public boolean moveNorth(Player p) throws MovementControllerException{
         int row = p.getLocation().getRow();
         int column = p.getLocation().getColumn();
-        
-        if(row == 0){
-            return false;//Throw exception
+
+        if (row == 0) {
+            throw new MovementControllerException("This is the end of the map.");
+//            return false;
         }
         Map gameMap = Game.getInstance().getMap();
         
         Location newLocation = gameMap.getLocation(row - 1, column);
-        
+
         p.setLocation(newLocation);
         return true;
     }
-public boolean moveEast(Player p){
+
+    public boolean moveEast(Player p) throws MovementControllerException{
         int row = p.getLocation().getRow();
         int column = p.getLocation().getColumn();
-        
-        if(column == 0){
-            return false;//Throw exception
+
+        if (column == 9) {
+            throw new MovementControllerException("This is the end of the map.");
         }
         Map gameMap = Game.getInstance().getMap();
-        
-        Location newLocation = gameMap.getLocation(row , column + 1);
-        
+
+        Location newLocation = gameMap.getLocation(row, column + 1);
+
         p.setLocation(newLocation);
         return true;
     }
-public boolean moveSouth(Player p){
+
+    public boolean moveSouth(Player p) throws MovementControllerException{
         int row = p.getLocation().getRow();
         int column = p.getLocation().getColumn();
-        
-        if(row == 0){
-            return false;//Throw exception
+
+        if (row == 4) {
+            throw new MovementControllerException("This is the end of the map.");
         }
         Map gameMap = Game.getInstance().getMap();
-        
+
         Location newLocation = gameMap.getLocation(row + 1, column);
-        
+
         p.setLocation(newLocation);
         return true;
     }
-public boolean moveWest(Player p){
+
+    public boolean moveWest(Player p) throws MovementControllerException{
         int row = p.getLocation().getRow();
         int column = p.getLocation().getColumn();
-        
-        if(column == 0){
-            return false;//Throw exception
+
+        if (column == 1) {
+            throw new MovementControllerException("This is the end of the map.");
         }
         Map gameMap = Game.getInstance().getMap();
-        
-        Location newLocation = gameMap.getLocation(row , column - 1);
-        
+
+        Location newLocation = gameMap.getLocation(row, column - 1);
+
         p.setLocation(newLocation);
         return true;
     }
+
     public static Map createMap() { //another method createMap() is in LocationController class?????
         //create the map
         Map map = new Map();
@@ -84,36 +91,33 @@ public boolean moveWest(Player p){
     }
 
     public static void moveActorsToStartingLocation(Map map) {
-        
+
         //SETUP the player first
         Game.getInstance().getPlayer().setLocation(map.getLocations()[2][8]);
-        
+
         //SETUP everyone else
-       
         Actor king = new Actor("I'm the king");
         king.setActor(ActorEnum.King);
         king.setLocation(map.getLocations()[2][8]); //Assign the king to the castle
-        
+
         Actor blacksmith = new Actor("He is hungry and will trade some tools for food.");
         blacksmith.setActor(ActorEnum.Blacksmith);
         blacksmith.setLocation(map.getLocations()[1][6]); //assign the blacksmith to the blacksmith location
-        
+
         Actor farmer = new Actor("He will ask you for help to calculate the amount of grain to plant in his field.");
         farmer.setActor(ActorEnum.Farmer);
         farmer.setLocation(map.getLocations()[3][6]); //assign farmer to farm
-        
+
         Actor guard = new Actor("Guard will give you a riddle so you can go out of the prison.");
         guard.setActor(ActorEnum.Guard);
         guard.setLocation(map.getLocations()[3][8]); //Assign the guard to dungeon
-        
+
         Actor mistic = new Actor("This man will gives you good advice.");
         mistic.setActor(ActorEnum.Mystic);
         mistic.setLocation(map.getLocations()[2][4]); //Assign the mistic to the mystic location
-        
+
         //TODO SETUP EVERYONE
     }
-    
-    
-    //TODO move the player
 
+    //TODO move the player
 }

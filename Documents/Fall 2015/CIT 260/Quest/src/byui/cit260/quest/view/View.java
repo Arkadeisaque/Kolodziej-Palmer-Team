@@ -35,7 +35,7 @@ public abstract class View implements ViewInterface {
         boolean done = false;
         
         do {
-            System.out.println(this.displayMessage);  //print message
+            this.console.println(this.displayMessage);  //print message
             value = this.getInput(); //get the input from the user
             done = this.doAction(value); //do action based on selection
         }

@@ -20,7 +20,7 @@ public class Map implements Serializable {
     private Location[][] locations;
 
     public Map() {
-        setup(10, 10);
+        setup(10, 5);
     }
 
     public Map(int columnCount, int rowCount) {
@@ -347,7 +347,7 @@ public class Map implements Serializable {
     public String getMapDisplay() {
         String rtn = "";
 
-        for (int row = 0; row < locations.length; row++) {
+        for (int row = 1; row < locations.length; row++) {
             for (int column = 0; column < locations[0].length; column++) {
                 rtn += "[" + locations[row][column].getLocationType() + "]";
             }

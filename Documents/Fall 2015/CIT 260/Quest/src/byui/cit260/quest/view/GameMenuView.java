@@ -105,17 +105,24 @@ public class GameMenuView extends View {
     }
 
     private void viewActors() {
-        System.out.println("You're standing by the " + Game.getInstance().getPlayer().getLocation().getActor().getName());
-        System.out.println("He says " + Game.getInstance().getPlayer().getLocation().getActor().getEnumDescription());
+
+        if (Game.getInstance().getPlayer().getLocation().getActor() == null) {
+            System.out.println("there is no actor here.");
+        } else {
+
+            System.out.println("You're standing by the " + Game.getInstance().getPlayer().getLocation().getActor().getName());
+            System.out.println("He says " + Game.getInstance().getPlayer().getLocation().getActor().getEnumDescription());
+        }
     }
-     private void moveNorth() {
+
+    private void moveNorth() {
         MovementController mc = new MovementController();
         try {
-            mc.moveNorth(Game.getInstance().getPlayer());  
+            mc.moveNorth(Game.getInstance().getPlayer());
         } catch (MovementControllerException me) {
             System.out.println(me.getMessage());
         }
-        
+
     }
 
     private void moveEast() {
@@ -129,19 +136,19 @@ public class GameMenuView extends View {
 
     private void moveSouth() {
         MovementController mc = new MovementController();
-        try{
-           mc.moveSouth(Game.getInstance().getPlayer());
-       }catch(MovementControllerException me){
-           System.out.println(me.getMessage());
-       }
+        try {
+            mc.moveSouth(Game.getInstance().getPlayer());
+        } catch (MovementControllerException me) {
+            System.out.println(me.getMessage());
+        }
     }
 
     private void moveWest() {
         MovementController mc = new MovementController();
-        try{
-           mc.moveWest(Game.getInstance().getPlayer());
-       }catch(MovementControllerException me){
-           System.out.println(me.getMessage());
-       }
+        try {
+            mc.moveWest(Game.getInstance().getPlayer());
+        } catch (MovementControllerException me) {
+            System.out.println(me.getMessage());
+        }
     }
 }

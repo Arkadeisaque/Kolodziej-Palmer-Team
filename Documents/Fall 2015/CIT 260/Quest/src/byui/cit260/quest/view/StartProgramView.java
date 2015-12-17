@@ -34,7 +34,7 @@ public class StartProgramView {
     }
     
     //implemented displayBanner() function:
-    private void displayBanner() {
+    public void displayBanner() {
         System.out.println("\n\n*********************************************");
         
         System.out.println("\n This is the game of Quest for Magic Orb      "
